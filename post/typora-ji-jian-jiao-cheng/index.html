@@ -1,0 +1,615 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8" >
+
+<title>Typora极简教程 | Jingda Liu&#39;s Blog</title>
+<meta name="description" content="Stay Hungry
+Stay Foolish">
+
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no">
+
+<link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.7.2/css/all.css" integrity="sha384-fnmOCqbTlWIlj8LyTjo7mOUStjsKC4pOpQbqyi7RrhN7udi9RwhKkMHpvLbHG9Sr" crossorigin="anonymous">
+<link rel="shortcut icon" href="https://jingdaliu.github.io/favicon.ico?v=1556465335521">
+<link rel="stylesheet" href="https://jingdaliu.github.io/styles/main.css">
+
+
+  
+    <link rel="stylesheet" href="https://unpkg.com/gitalk/dist/gitalk.css" />
+  
+
+  
+
+
+<script src="https://cdn.jsdelivr.net/npm/vue/dist/vue.js"></script>
+<script src="https://cdn.bootcss.com/highlight.js/9.12.0/highlight.min.js"></script>
+
+<link rel="stylesheet" href="https://unpkg.com/aos@next/dist/aos.css" />
+
+
+
+  </head>
+  <body>
+    <div id="app" class="main">
+
+      <div class="sidebar" :class="{ 'full-height': menuVisible }">
+  <div class="top-container" data-aos="fade-right">
+    <div class="top-header-container">
+      <a class="site-title-container" href="https://jingdaliu.github.io">
+        <img src="https://jingdaliu.github.io/images/avatar.png?v=1556465335521" class="site-logo">
+        <h1 class="site-title">Jingda Liu&#39;s Blog</h1>
+      </a>
+      <div class="menu-btn" @click="menuVisible = !menuVisible">
+        <div class="line"></div>
+      </div>
+    </div>
+    <div>
+      
+        
+          <a href="/" class="site-nav">
+            首页
+          </a>
+        
+      
+        
+          <a href="/archives" class="site-nav">
+            归档
+          </a>
+        
+      
+        
+          <a href="/tags" class="site-nav">
+            标签
+          </a>
+        
+      
+        
+          <a href="/post/about" class="site-nav">
+            关于
+          </a>
+        
+      
+    </div>
+  </div>
+  <div class="bottom-container" data-aos="flip-up" data-aos-offset="0">
+    <div class="social-container">
+      
+        
+          <a class="social-link" href="https://github.com/jingdaliu" target="_blank">
+            <i class="fab fa-github"></i>
+          </a>
+        
+      
+        
+          <a class="social-link" href="https://www.instagram.com/mrdadark" target="_blank">
+            <i class="fab fa-twitter"></i>
+          </a>
+        
+      
+        
+      
+        
+      
+        
+      
+    </div>
+    <div class="site-description">
+      Stay Hungry
+Stay Foolish
+    </div>
+    <div class="site-footer">
+      Powered by <a href="https://github.com/jingdaliu" target="_blank">JingdaLiu</a>
+    </div>
+  </div>
+</div>
+
+
+      <div class="main-container">
+        <div class="content-container" data-aos="fade-up">
+          <div class="post-detail">
+            <h2 class="post-title">Typora极简教程</h2>
+            <div class="post-date">2019-04-28</div>
+            
+            <div class="post-content">
+              <blockquote>
+<p>” <strong>Markdown</strong> 是一种<strong>轻量级</strong>标记语言，创始人是<strong>约翰·格鲁伯</strong>（John Gruber）。它允许人们 “使用易读易写的纯文本格式编写文档，然后转换成有效的 HTML 文档。”</p>
+</blockquote>
+<h3 id="1-基本操作">1. 基本操作</h3>
+<h4 id="11-内容目录">1.1 内容目录</h4>
+<hr>
+<ul>
+<li>语法</li>
+</ul>
+<pre><code>[toc]
+</code></pre>
+<h4 id="12-标题">1.2 标题</h4>
+<hr>
+<ul>
+<li>语法</li>
+</ul>
+<pre><code>#       一级标题    
+##      二级标题    
+###     三级标题    
+####    四级标题    
+#####   五级标题    
+######  六级标题    
+</code></pre>
+<h4 id="13-引用">1.3 引用</h4>
+<hr>
+<ul>
+<li>语法</li>
+</ul>
+<pre><code>&gt; 引用内容1
+&gt; 引用内容2
+&gt;&gt; 引用内容3
+</code></pre>
+<ul>
+<li>效果</li>
+</ul>
+<blockquote>
+<p>引用内容1
+引用内容2</p>
+<blockquote>
+<p>引用内容3</p>
+</blockquote>
+</blockquote>
+<h3 id="2-代码">2. 代码</h3>
+<h4 id="21-单行代码">2.1 单行代码</h4>
+<hr>
+<ul>
+<li>语法</li>
+</ul>
+<pre><code>`String str1 = &quot;hello&quot;;`
+</code></pre>
+<ul>
+<li>效果</li>
+</ul>
+<pre><code>String str1 = &quot;hello&quot;;
+</code></pre>
+<h4 id="22-多行代码">2.2 多行代码</h4>
+<hr>
+<ul>
+<li>语法</li>
+</ul>
+<pre><code>~~~
+​```
+~~~java
+​```c
+</code></pre>
+<ul>
+<li>效果</li>
+</ul>
+<pre><code>int a = 10;
+int b = 20;
+</code></pre>
+<h3 id="3-列表">3. 列表</h3>
+<h4 id="31-无序列表">3.1 无序列表</h4>
+<hr>
+<ul>
+<li>语法</li>
+</ul>
+<pre><code>* 无序列表1
++ 无序列表2
+- 无序列表3
+</code></pre>
+<ul>
+<li>效果</li>
+<li>无序列表1</li>
+<li>无序列表2</li>
+<li>无序列表3</li>
+</ul>
+<h4 id="32-多行无序列表">3.2 多行无序列表</h4>
+<hr>
+<ul>
+<li>语法</li>
+</ul>
+<pre><code>* 多行无序列表1
+TAB * 多行无序列表2
+TAB TAB * 多行无序列表3
+</code></pre>
+<ul>
+<li>效果</li>
+<li>多行无序列表1
+<ul>
+<li>多行无序列表2
+<ul>
+<li>多行无序列表3</li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+<h4 id="33-有序列表">3.3 有序列表</h4>
+<hr>
+<ul>
+<li>语法</li>
+</ul>
+<pre><code>1. 有序列表1
+2. 有序列表2
+3. 有序列表3
+
+</code></pre>
+<ul>
+<li>效果</li>
+</ul>
+<ol>
+<li>有序列表1</li>
+<li>有序列表2</li>
+<li>有序列表3</li>
+</ol>
+<h4 id="34-多行有序列表">3.4 多行有序列表</h4>
+<hr>
+<ul>
+<li>语法</li>
+</ul>
+<pre><code>1. 多行有序列表1
+2. 多行有序列表2
+    1. 多行有序列表2-1
+    2. 多行有序列表2-2
+3. 多行有序列表3
+    1. 多行有序列表3-1
+    2. 多行有序列表3-2
+
+</code></pre>
+<ul>
+<li>效果</li>
+</ul>
+<ol>
+<li>多行有序列表1</li>
+<li>多行有序列表2</li>
+<li>多行有序列表2-1</li>
+<li>多行有序列表2-2</li>
+<li>多行有序列表3</li>
+<li>多行有序列表3-1</li>
+<li>多行有序列表3-2</li>
+</ol>
+<h4 id="35-任务列表">3.5 任务列表</h4>
+<hr>
+<ul>
+<li>语法</li>
+</ul>
+<pre><code>-[ ] 抽烟
+-[x] 喝酒
+-[ ] 烫头
+
+</code></pre>
+<ul>
+<li>效果</li>
+</ul>
+<p>-[ ] 抽烟
+-[x] 喝酒
+-[ ] 烫头</p>
+<h4 id="36-表格">3.6 表格</h4>
+<hr>
+<ul>
+<li>语法</li>
+</ul>
+<pre><code>|姓名|性别|年龄|手机号|
+|:---|:--:|:--:|---:|
+|张三|男|21|18975346876|
+|李四|女|23|17789548964|
+|王五|男|25|15876513546|
+</code></pre>
+<ul>
+<li>效果</li>
+</ul>
+<table>
+<thead>
+<tr>
+<th style="text-align:left">姓名</th>
+<th style="text-align:center">性别</th>
+<th style="text-align:center">年龄</th>
+<th style="text-align:right">手机号</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align:left">张三</td>
+<td style="text-align:center">男</td>
+<td style="text-align:center">21</td>
+<td style="text-align:right">18975346876</td>
+</tr>
+<tr>
+<td style="text-align:left">李四</td>
+<td style="text-align:center">女</td>
+<td style="text-align:center">23</td>
+<td style="text-align:right">17789548964</td>
+</tr>
+<tr>
+<td style="text-align:left">王五</td>
+<td style="text-align:center">男</td>
+<td style="text-align:center">25</td>
+<td style="text-align:right">15876513546</td>
+</tr>
+</tbody>
+</table>
+<h3 id="4-链接">4. 链接</h3>
+<h4 id="41-图片">4.1 图片</h4>
+<hr>
+<ul>
+<li>语法1（<em>本地图片</em>）</li>
+</ul>
+<pre><code>[图片上传失败...(image-61fd19-1520850984854)]
+</code></pre>
+<ul>
+<li>语法2（<em>网络图片</em>）</li>
+</ul>
+<pre><code>![typora.jpg](https://upload-images.jianshu.io/upload_images/1538862-d91e815790b81e4a.jpg?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240)
+
+</code></pre>
+<ul>
+<li>效果2</li>
+</ul>
+<p><img src="https:////upload-images.jianshu.io/upload_images/1538862-d91e815790b81e4a.jpg?imageMogr2/auto-orient/strip%7CimageView2/2/w/539/format/webp" alt="img"></p>
+<p>typora.jpg</p>
+<h4 id="42-超链接">4.2 超链接</h4>
+<hr>
+<ul>
+<li>语法1（<em>行内式链接</em>）</li>
+</ul>
+<pre><code>[百度][https://www.baidu.com/]
+
+</code></pre>
+<ul>
+<li>效果1</li>
+</ul>
+<p>[百度][<a href="https://link.jianshu.com?t=https%3A%2F%2Fwww.baidu.com%2F%255D">https://www.baidu.com/]</a></p>
+<ul>
+<li>语法2（<em>参考式链接</em>）</li>
+</ul>
+<pre><code>[CSDN][CSDN网址]
+[CSDN网址]:https://www.csdn.net/
+
+</code></pre>
+<ul>
+<li>效果2</li>
+</ul>
+<p><a href="https://link.jianshu.com?t=https%3A%2F%2Fwww.csdn.net%2F">CSDN</a></p>
+<ul>
+<li>语法3（<em>自动链接</em>）</li>
+</ul>
+<pre><code>&lt;https://github.com/&gt;
+</code></pre>
+<ul>
+<li>效果2</li>
+</ul>
+<p><a href="https://link.jianshu.com?t=https%3A%2F%2Fgithub.com%2F">https://github.com/</a></p>
+<h3 id="5-其他">5. 其他</h3>
+<h4 id="51-斜体">5.1 斜体</h4>
+<hr>
+<ul>
+<li>语法</li>
+</ul>
+<pre><code>*斜体*
+_斜体_
+</code></pre>
+<ul>
+<li>效果</li>
+</ul>
+<p><em>斜体</em>
+<em>斜体</em></p>
+<h4 id="52-加粗">5.2 加粗</h4>
+<hr>
+<ul>
+<li>语法</li>
+</ul>
+<pre><code>**加粗**
+__加粗__
+
+</code></pre>
+<ul>
+<li>效果</li>
+</ul>
+<p><strong>加粗</strong>
+<strong>加粗</strong></p>
+<h4 id="53-下划线">5.3 下划线</h4>
+<hr>
+<ul>
+<li>语法</li>
+</ul>
+<pre><code>&lt;u&gt;下划线&lt;/u&gt;
+</code></pre>
+<ul>
+<li>效果</li>
+</ul>
+<p><u>下划线</u></p>
+<h4 id="54-删除线">5.4 删除线</h4>
+<hr>
+<ul>
+<li>语法</li>
+</ul>
+<pre><code>~~删除线~~
+</code></pre>
+<ul>
+<li>效果</li>
+</ul>
+<p><s>删除线</s></p>
+<h4 id="55-分隔线">5.5 分隔线</h4>
+<hr>
+<ul>
+<li>语法</li>
+</ul>
+<pre><code>***
+---
+___
+</code></pre>
+<ul>
+<li>效果</li>
+</ul>
+<hr>
+<hr>
+<hr>
+<h4 id="56-注脚">5.6 注脚</h4>
+<hr>
+<ul>
+<li>语法</li>
+</ul>
+<pre><code>Typora[^1]
+[^1]A markdown editor
+</code></pre>
+<ul>
+<li>效果</li>
+</ul>
+<p>Typora[<a href="#fn1">1]</a></p>
+<h4 id="57-上下标">5.7 上下标</h4>
+<hr>
+<ul>
+<li>语法</li>
+</ul>
+<pre><code>$3^2=9$
+$3^{(3-1)}=9$
+$H_2SO_4$
+$H_{2SO_4}$
+</code></pre>
+<ul>
+<li>效果</li>
+</ul>
+<p><span class="katex"><span class="katex-mathml"><math><semantics><mrow><msup><mn>3</mn><mn>2</mn></msup><mo>=</mo><mn>9</mn></mrow><annotation encoding="application/x-tex">3^2=9</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="strut" style="height:0.8141079999999999em;"></span><span class="strut bottom" style="height:0.8141079999999999em;vertical-align:0em;"></span><span class="base textstyle uncramped"><span class="mord"><span class="mord mathrm">3</span><span class="vlist"><span style="top:-0.363em;margin-right:0.05em;"><span class="fontsize-ensurer reset-size5 size5"><span style="font-size:0em;">​</span></span><span class="reset-textstyle scriptstyle uncramped"><span class="mord mathrm">2</span></span></span><span class="baseline-fix"><span class="fontsize-ensurer reset-size5 size5"><span style="font-size:0em;">​</span></span>​</span></span></span><span class="mrel">=</span><span class="mord mathrm">9</span></span></span></span>
+<span class="katex"><span class="katex-mathml"><math><semantics><mrow><msup><mn>3</mn><mrow><mo>(</mo><mn>3</mn><mo>−</mo><mn>1</mn><mo>)</mo></mrow></msup><mo>=</mo><mn>9</mn></mrow><annotation encoding="application/x-tex">3^{(3-1)}=9</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="strut" style="height:0.8879999999999999em;"></span><span class="strut bottom" style="height:0.8879999999999999em;vertical-align:0em;"></span><span class="base textstyle uncramped"><span class="mord"><span class="mord mathrm">3</span><span class="vlist"><span style="top:-0.363em;margin-right:0.05em;"><span class="fontsize-ensurer reset-size5 size5"><span style="font-size:0em;">​</span></span><span class="reset-textstyle scriptstyle uncramped"><span class="mord scriptstyle uncramped"><span class="mopen">(</span><span class="mord mathrm">3</span><span class="mbin">−</span><span class="mord mathrm">1</span><span class="mclose">)</span></span></span></span><span class="baseline-fix"><span class="fontsize-ensurer reset-size5 size5"><span style="font-size:0em;">​</span></span>​</span></span></span><span class="mrel">=</span><span class="mord mathrm">9</span></span></span></span>
+<span class="katex"><span class="katex-mathml"><math><semantics><mrow><msub><mi>H</mi><mn>2</mn></msub><mi>S</mi><msub><mi>O</mi><mn>4</mn></msub></mrow><annotation encoding="application/x-tex">H_2SO_4</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="strut" style="height:0.68333em;"></span><span class="strut bottom" style="height:0.83333em;vertical-align:-0.15em;"></span><span class="base textstyle uncramped"><span class="mord"><span class="mord mathit" style="margin-right:0.08125em;">H</span><span class="vlist"><span style="top:0.15em;margin-right:0.05em;margin-left:-0.08125em;"><span class="fontsize-ensurer reset-size5 size5"><span style="font-size:0em;">​</span></span><span class="reset-textstyle scriptstyle cramped"><span class="mord mathrm">2</span></span></span><span class="baseline-fix"><span class="fontsize-ensurer reset-size5 size5"><span style="font-size:0em;">​</span></span>​</span></span></span><span class="mord mathit" style="margin-right:0.05764em;">S</span><span class="mord"><span class="mord mathit" style="margin-right:0.02778em;">O</span><span class="vlist"><span style="top:0.15em;margin-right:0.05em;margin-left:-0.02778em;"><span class="fontsize-ensurer reset-size5 size5"><span style="font-size:0em;">​</span></span><span class="reset-textstyle scriptstyle cramped"><span class="mord mathrm">4</span></span></span><span class="baseline-fix"><span class="fontsize-ensurer reset-size5 size5"><span style="font-size:0em;">​</span></span>​</span></span></span></span></span></span></p>
+<p><span class="katex"><span class="katex-mathml"><math><semantics><mrow><msub><mi>H</mi><mrow><mn>2</mn><mi>S</mi><msub><mi>O</mi><mn>4</mn></msub></mrow></msub></mrow><annotation encoding="application/x-tex">H_{2SO_4}</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="strut" style="height:0.68333em;"></span><span class="strut bottom" style="height:0.93833em;vertical-align:-0.255em;"></span><span class="base textstyle uncramped"><span class="mord"><span class="mord mathit" style="margin-right:0.08125em;">H</span><span class="vlist"><span style="top:0.15000000000000002em;margin-right:0.05em;margin-left:-0.08125em;"><span class="fontsize-ensurer reset-size5 size5"><span style="font-size:0em;">​</span></span><span class="reset-textstyle scriptstyle cramped"><span class="mord scriptstyle cramped"><span class="mord mathrm">2</span><span class="mord mathit" style="margin-right:0.05764em;">S</span><span class="mord"><span class="mord mathit" style="margin-right:0.02778em;">O</span><span class="vlist"><span style="top:0.15em;margin-right:0.07142857142857144em;margin-left:-0.02778em;"><span class="fontsize-ensurer reset-size5 size5"><span style="font-size:0em;">​</span></span><span class="reset-scriptstyle scriptscriptstyle cramped"><span class="mord mathrm">4</span></span></span><span class="baseline-fix"><span class="fontsize-ensurer reset-size5 size5"><span style="font-size:0em;">​</span></span>​</span></span></span></span></span></span><span class="baseline-fix"><span class="fontsize-ensurer reset-size5 size5"><span style="font-size:0em;">​</span></span>​</span></span></span></span></span></span></p>
+<h4 id="58-符号的输入">5.8 符号的输入</h4>
+<hr>
+<ul>
+<li>语法</li>
+</ul>
+<pre><code>\\   反斜线
+\`   反引号
+\*   星号
+\_   底线
+\{ \}  花括号
+\[ \]  方括号
+\( \)  括弧
+\#   井字号
+\+   加号
+\-   减号
+\.   英文句点
+\!   惊叹号
+</code></pre>
+<ul>
+<li>效果</li>
+</ul>
+<p>\   `   *   _  { }  [ ]  ( )  #   +  -  .   !</p>
+<h4 id="59-特殊字符">5.9 特殊字符</h4>
+<hr>
+<ul>
+<li>语法</li>
+</ul>
+<pre><code>&amp;copy;      版权      
+&amp;reg;       注册商标
+&amp;trade;     商标
+&amp;nbsp;      空格
+&amp;amp;       和号
+&amp;quot;      引号
+&amp;apos;      撇号
+&amp;lt;        小于号
+&amp;gt;        大于号
+&amp;ne;        不等号
+&amp;le;        小于等于
+&amp;ge;        大于等于
+&amp;cent;      分
+&amp;pound;     磅
+&amp;euro;      欧元
+&amp;yen;       元
+&amp;sect;      节
+&amp;times;     乘号
+&amp;divide;    除号
+&amp;plusmn;    正负号
+</code></pre>
+<ul>
+<li>
+<p>效果</p>
+<p>©
+®
+™</p>
+<p>&amp;
+&quot;
+'
+&lt;
+&gt;
+≠
+≤
+≥
+¢
+£
+€
+¥
+§
+×
+÷
+±</p>
+</li>
+</ul>
+
+            </div>
+            
+            
+              <div class="next-post">
+                <div class="next">下一篇</div>
+                <a href="https://jingdaliu.github.io/post/liu-jing-da-xiang-mu-zong-jie-zju-ksii-ailab">
+                  <h3 class="post-title">
+                    刘竞达项目总结@ZJU KSII AILAB
+                  </h3>
+                </a>
+              </div>
+            
+
+            
+              
+                <div id="gitalk-container" data-aos="fade-in"></div>
+              
+
+              
+            
+
+          </div>
+
+        </div>
+      </div>
+    </div>
+
+    <script src="https://unpkg.com/aos@next/dist/aos.js"></script>
+
+<script type="application/javascript">
+
+AOS.init();
+
+hljs.initHighlightingOnLoad()
+
+var app = new Vue({
+  el: '#app',
+  data: {
+    menuVisible: false,
+  },
+})
+
+</script>
+
+
+  
+  
+    <script src="https://unpkg.com/gitalk/dist/gitalk.min.js"></script>
+    <script>
+
+      var gitalk = new Gitalk({
+        clientID: '',
+        clientSecret: '',
+        repo: '',
+        owner: '',
+        admin: [''],
+        id: location.pathname,      // Ensure uniqueness and length less than 50
+        distractionFreeMode: false  // Facebook-like distraction free mode
+      })
+
+      gitalk.render('gitalk-container')
+
+    </script>
+  
+
+  
+
+
+
+
+  </body>
+</html>
