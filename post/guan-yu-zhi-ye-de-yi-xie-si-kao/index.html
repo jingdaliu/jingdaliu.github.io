@@ -1,0 +1,219 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8" >
+
+<title>关于职业的一些思考 | Jingda Liu&#39;s Blog</title>
+<meta name="description" content="Stay Hungry
+Stay Foolish">
+
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no">
+
+<link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.7.2/css/all.css" integrity="sha384-fnmOCqbTlWIlj8LyTjo7mOUStjsKC4pOpQbqyi7RrhN7udi9RwhKkMHpvLbHG9Sr" crossorigin="anonymous">
+<link rel="shortcut icon" href="https://jingdaliu.github.io/favicon.ico?v=1556464759705">
+<link rel="stylesheet" href="https://jingdaliu.github.io/styles/main.css">
+
+
+  
+    <link rel="stylesheet" href="https://unpkg.com/gitalk/dist/gitalk.css" />
+  
+
+  
+
+
+<script src="https://cdn.jsdelivr.net/npm/vue/dist/vue.js"></script>
+<script src="https://cdn.bootcss.com/highlight.js/9.12.0/highlight.min.js"></script>
+
+<link rel="stylesheet" href="https://unpkg.com/aos@next/dist/aos.css" />
+
+
+
+  </head>
+  <body>
+    <div id="app" class="main">
+
+      <div class="sidebar" :class="{ 'full-height': menuVisible }">
+  <div class="top-container" data-aos="fade-right">
+    <div class="top-header-container">
+      <a class="site-title-container" href="https://jingdaliu.github.io">
+        <img src="https://jingdaliu.github.io/images/avatar.png?v=1556464759705" class="site-logo">
+        <h1 class="site-title">Jingda Liu&#39;s Blog</h1>
+      </a>
+      <div class="menu-btn" @click="menuVisible = !menuVisible">
+        <div class="line"></div>
+      </div>
+    </div>
+    <div>
+      
+        
+          <a href="/" class="site-nav">
+            首页
+          </a>
+        
+      
+        
+          <a href="/archives" class="site-nav">
+            归档
+          </a>
+        
+      
+        
+          <a href="/tags" class="site-nav">
+            标签
+          </a>
+        
+      
+        
+          <a href="/post/about" class="site-nav">
+            关于
+          </a>
+        
+      
+    </div>
+  </div>
+  <div class="bottom-container" data-aos="flip-up" data-aos-offset="0">
+    <div class="social-container">
+      
+        
+          <a class="social-link" href="https://github.com/jingdaliu" target="_blank">
+            <i class="fab fa-github"></i>
+          </a>
+        
+      
+        
+          <a class="social-link" href="https://www.instagram.com/mrdadark" target="_blank">
+            <i class="fab fa-twitter"></i>
+          </a>
+        
+      
+        
+      
+        
+      
+        
+      
+    </div>
+    <div class="site-description">
+      Stay Hungry
+Stay Foolish
+    </div>
+    <div class="site-footer">
+      Powered by <a href="https://github.com/jingdaliu" target="_blank">JingdaLiu</a>
+    </div>
+  </div>
+</div>
+
+
+      <div class="main-container">
+        <div class="content-container" data-aos="fade-up">
+          <div class="post-detail">
+            <h2 class="post-title">关于职业的一些思考</h2>
+            <div class="post-date">2019-04-02</div>
+            
+            <div class="post-content">
+              <p>最近申请UM-DataScience项目，请了大学老师和工作过的实验室老师写推荐信，然后遇到了一个很扎心的问题。我的大学老师和实验室领导并不认识，但是在帮我写完推荐信后，却不谋而合的做了同一件事，他们都很认真的问我：</p>
+<p>『是否真的考虑好了，真的要当程序员吗？』</p>
+<p>『其实我也不知道』</p>
+<p>3月底来到武汉后，每天都忙的找不到北，每天晚上都是十一点多才回家，洗完澡后属于自己的时间真的是屈指可数，然后刷一会手机就已经快两点了，长期的熬夜和压力让自己情绪也很不稳定，自己也对未来的职业规划开始有了困惑。说来也巧，3月26日，GitHub上996.icu开始爆火，关于996话题的热度也一直没有降过,到后来马云和刘强东也参入了讨论，引发的争议也是层出不穷。3月31日，1818黄金眼报道了<a href="http://s.weibo.com/weibo?q=%23%E5%B0%8F%E4%BC%99%E9%AA%91%E8%BD%A6%E9%80%86%E8%A1%8C%E8%A2%AB%E6%8B%A6%E5%90%8E%E7%88%86%E5%8F%91%23">#小伙骑车逆行被拦后爆发#</a> 称压力好大，再一次点燃了大家对程序员压力的讨论。那两几天我的状态也不好，每天忙成这样，代码还是搞不懂，日均睡眠时间五个多小时，同时还有脱产的压力。在微博和知乎刷了很多关于996和杭州小伙的评论，有的评论真的是字字锥心，那种难过的窒息感真的是感同身受。</p>
+<p>申请UM那天，和大学老师通话了很久，他给我分析了很多，包括2019年就业形势的不景气，包括我去学习DataScience能否顺利结业（…）以及我毕业后能否找到更好的工作（他一直觉得我之前的事业单位挺好的，而且为我隐瞒了我离职的事情），他还通过他的经历告诉我好的单位一票难求，如今师大同等职位本土博士都已经不招了，最后他还问我是否真的热爱编程，如果不是足够热爱，这个工作会很辛苦。半小时后实验室的老师也说了同样的话...</p>
+<p><img src="https://ws4.sinaimg.cn/large/006tNc79gy1g23csmwz3hj30qs14gafs.jpg" alt="image-20190415153237232"></p>
+<p>师长、领导、家人和朋友几乎给了我一样的评价和建议。</p>
+<p>其实我也很困惑。</p>
+<p>早晨和网易的基友聊了蛮久</p>
+<p><img src="https://ws2.sinaimg.cn/large/006tNc79gy1g23eox6er4j30u01hdgrp.jpg" alt="311555317301_.pic_hd"></p>
+<p><img src="https://ws3.sinaimg.cn/large/006tNc79gy1g23ep1q1vzj30u01hdgrm.jpg" alt="321555317319_.pic_hd"></p>
+<h3 id="331555317346_pic_hd"><img src="https://ws2.sinaimg.cn/large/006tNc79gy1g23ep6vxkmj30u01hd44n.jpg" alt="331555317346_.pic_hd"></h3>
+<p><img src="https://ws4.sinaimg.cn/large/006tNc79gy1g23epn90gdj30u01hdn2x.jpg" alt="341555317364_.pic_hd"></p>
+<p><img src="https://ws2.sinaimg.cn/large/006tNc79gy1g23epx0pbmj30td1g879q.jpg" alt="351555317474_.pic_hd"></p>
+<p><img src="https://ws1.sinaimg.cn/large/006tNc79gy1g23eq49ducj30u01hdtf6.jpg" alt="361555317475_.pic_hd"></p>
+<p><img src="https://ws2.sinaimg.cn/large/006tNc79gy1g23eqdfzpkj30u01hdn3m.jpg" alt="371555317478_.pic_hd"></p>
+<p><img src="https://ws4.sinaimg.cn/large/006tNc79gy1g23eqlv42jj30th1ggdkw.jpg" alt="381555317479_.pic_hd"></p>
+<h2 id="附上基友送我的乔帮主的表情包">附上基友送我的乔帮主的表情包</h2>
+<p><img src="https://ws2.sinaimg.cn/large/006tNc79gy1g23eqryyzsj30dw08odmu.jpg" alt="391555317483_.pic_hd"></p>
+<h2 id="datascience的课程">DataScience的课程</h2>
+<p>FST提供的4門基礎數據科學科目使學生能夠獲得：</p>
+<p>– 使用編程語言來處理數據，產生數據可視化，並解釋這些可視化數據;</p>
+<p>– 了解不同領域的大數據分析、開發的數據庫和數據挖掘概念及技術;</p>
+<p>– 了解數據可視化在數據科學和大數據分析中的重要意義，獲取知識和技能以使用數據可視化工具呈現大量數據;</p>
+<p>– 學習基本的深度學習方法;</p>
+<p>– Bayesian Networks(貝葉斯網絡);</p>
+<p>– CNN (卷積神經網絡);</p>
+<p>– 表征學習和強化學習。</p>
+<p>基礎科目:</p>
+<p>數據科學編程引論</p>
+<p>數據科學與數據可視化</p>
+<p>數據庫和數據挖掘技術</p>
+<p>機器學習工具</p>
+
+            </div>
+            
+            
+              <div class="next-post">
+                <div class="next">下一篇</div>
+                <a href="https://jingdaliu.github.io/post/an-shi-jian">
+                  <h3 class="post-title">
+                    暗时间
+                  </h3>
+                </a>
+              </div>
+            
+
+            
+              
+                <div id="gitalk-container" data-aos="fade-in"></div>
+              
+
+              
+            
+
+          </div>
+
+        </div>
+      </div>
+    </div>
+
+    <script src="https://unpkg.com/aos@next/dist/aos.js"></script>
+
+<script type="application/javascript">
+
+AOS.init();
+
+hljs.initHighlightingOnLoad()
+
+var app = new Vue({
+  el: '#app',
+  data: {
+    menuVisible: false,
+  },
+})
+
+</script>
+
+
+  
+  
+    <script src="https://unpkg.com/gitalk/dist/gitalk.min.js"></script>
+    <script>
+
+      var gitalk = new Gitalk({
+        clientID: '',
+        clientSecret: '',
+        repo: '',
+        owner: '',
+        admin: [''],
+        id: location.pathname,      // Ensure uniqueness and length less than 50
+        distractionFreeMode: false  // Facebook-like distraction free mode
+      })
+
+      gitalk.render('gitalk-container')
+
+    </script>
+  
+
+  
+
+
+
+
+  </body>
+</html>
