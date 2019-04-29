@@ -10,7 +10,7 @@ Stay Foolish">
 <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no">
 
 <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.7.2/css/all.css" integrity="sha384-fnmOCqbTlWIlj8LyTjo7mOUStjsKC4pOpQbqyi7RrhN7udi9RwhKkMHpvLbHG9Sr" crossorigin="anonymous">
-<link rel="shortcut icon" href="https://jingdaliu.github.io/favicon.ico?v=1556503055307">
+<link rel="shortcut icon" href="https://jingdaliu.github.io/favicon.ico?v=1556503892868">
 <link rel="stylesheet" href="https://jingdaliu.github.io/styles/main.css">
 
 
@@ -36,7 +36,7 @@ Stay Foolish">
   <div class="top-container" data-aos="fade-right">
     <div class="top-header-container">
       <a class="site-title-container" href="https://jingdaliu.github.io">
-        <img src="https://jingdaliu.github.io/images/avatar.png?v=1556503055307" class="site-logo">
+        <img src="https://jingdaliu.github.io/images/avatar.png?v=1556503892868" class="site-logo">
         <h1 class="site-title">Jingda Liu&#39;s Blog</h1>
       </a>
       <div class="menu-btn" @click="menuVisible = !menuVisible">
@@ -118,6 +118,11 @@ Stay Foolish
 <p>科技的不断创新和经济的持续增长带动了交通事业的快 速发展,人们在注重驾驶的安全性的同时也开始关注行驶的 舒适性和高效性,因此辅助驾驶和自动驾驶汽车成为了重要 的研究课题.车道检测是辅助驾驶和自动驾驶的基本功能, 用于确定车辆在当前车道内的位置,为车道偏离决策提供判 断依据.</p>
 <p>目前基于视觉的车道检测方法主要有两大类: １ ) 基于深 度学习的车道检测技术  , 主要采用多层的卷积神经网络, 无需人为定义特征,能在行驶过程中通过不断学习完成车道 的识别.该技术具有检测精度高、鲁棒性强等优点,美中不足的是计算复 杂 度 高,需 要 性 能 较 强 的 GPU 才 能 完 成 工 作. ２ ) 基于传统方法的车道检测技术,主要有 图 像 特 征 法 和 模 型 匹配法.图像特征法通过分析底层的图像特征,如车道颜色、 边缘和纹理等,作为车道线分割和提取的依据模型匹配 法主要采用不 同 的 道 路 模 型(如 直 线 模 型 、 曲 线 模 型、 B 样条模型 等来实现结构化的车道检测,此方法对固定结构 的车道具有较好的识别效果,但适应性差,在光照变化、噪声 干扰或 车 道 线 不 连 续 的 情 况 下 达 不 到 预 期 的 检 测 效 果Borkar 等提出了一种随机抽样一致( Densit y ＧBasedS p atial 方法来排除 Clusterin go fA pp licationwithNoise , RANSAC ) 车道线外的 干 扰,首 先 使 用 最 小 二 乘 法 ( LeastS q uares MeＧ thod , LSE ) 拟合车道线,然后用卡尔曼滤波器( KalmanFilter )对车道线的参数进行跟踪估计. Lee 等结合了模型分解方 法,提出了 采 用 级 联 粒 子 滤 波 器 的 鲁 棒 车 道 检 测 算 法. Ju 等提出了一种基于消失点估计的车道检测方法,该方法从 图像中提取线段的交叉点,采用概率投票方法解决消失点的 问题.上述 ３ 种算法虽然精度较高,但存在计算量大、处理耗 时较长等问题,并不适合在嵌入式系统中应用.</p>
 <p>针对现有车道 检 测 算 法 较 难 均 衡 鲁 棒 性 和 复 杂 度 的 问 题,本文提出一种基于多帧叠加和滑动窗口搜索的快速车道 检测算法.该算法具有以下优势: 采用指定区域的逆透变 １ ) 换( InversePers p ectiveMa pp in g , IPM ) 和 多 帧 叠 加 的 预 处 理 方法,既减少了 图 像 处 理 的 数 据 量,又 降 低 了 周 围 环 境 的 干 扰,使得转换后的图像具有鲁棒性强等特点; ２ ) 利用像素密度 分布、滑动窗口搜索、不同车道模型定义的方法检测车道线, 算法不仅时间复杂度低,而且在汽车震动、车道标识线干扰、 变更车道等条件下也能稳定地工作.</p>
+<p>２</p>
+<p>快速车道检测算法的流程</p>
+<p>本文算法主要包括图像预处理、车道线识别、车道线拟合 和车道线输出四大部分,如图 １ 所示.图像预处理的主要流 程为:首先,通过逆透视变换( IPM ) 把指定的感兴趣区域转换 成鸟瞰图( bird ’ sＧe y eview ); 其次,为了提高边缘检测的效果,</p>
+<p>将黄色车道线和普通车道线分开检测,各自结合多帧叠加的 , 方法把 RGB 图转换成二值图,并进行像素的“或运算” 合并 两者的输出结果;最后,采用形态学开运算,删除不能包含结 构元素的对象区域,平滑对象的轮廓,以排除二值化后的干扰 和噪声信号.</p>
+<p><img src="https://jingdaliu.github.io/post-images/1556503883006.jpg" alt=""></p>
 
             </div>
             
