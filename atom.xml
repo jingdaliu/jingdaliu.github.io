@@ -1,0 +1,762 @@
+<?xml version="1.0" encoding="utf-8"?>
+<feed xmlns="http://www.w3.org/2005/Atom">
+    <id>https://jingdaliu.github.io</id>
+    <title>Jingda Liu&apos;s Blog</title>
+    <updated>2019-07-21T03:07:49.179Z</updated>
+    <generator>https://github.com/jpmonette/feed</generator>
+    <link rel="alternate" href="https://jingdaliu.github.io"/>
+    <link rel="self" href="https://jingdaliu.github.io/atom.xml"/>
+    <subtitle>Stay Hungry
+Stay Foolish</subtitle>
+    <logo>https://jingdaliu.github.io/images/avatar.png</logo>
+    <icon>https://jingdaliu.github.io/favicon.ico</icon>
+    <rights>All rights reserved 2019, Jingda Liu&apos;s Blog</rights>
+    <entry>
+        <title type="html"><![CDATA[2019.7.21]]></title>
+        <id>https://jingdaliu.github.io/post/2019721</id>
+        <link href="https://jingdaliu.github.io/post/2019721">
+        </link>
+        <updated>2019-07-21T02:52:27.000Z</updated>
+        <content type="html"><![CDATA[<p>个人博客断更很久了，在一开始做这个网站的时候，也没有打算把它做成技术博客。特别喜欢大神刘未鹏写博客的习惯，思考+记录。http://mindhacks.cn/<br>
+看了下日历，今天刚好是从武汉回家刚好过了两个月。从三月离职，去武汉再回家，这半年过得真算得上是“颠沛流离”。若仔细思考一下这半年做了什么事情，其实脑袋还是一片空白，最担心的就是钱没赚到，过得还很糟心。工作的时候，老板会要求写日报、周报和年终总结，工作的时候觉得这是一件恶俗且浪费时间的事情，当离职的时候才发现，周报很好的帮我总结了我工作到底做了什么事情。<br>
+所以，当了几个月的无业游民，决定以月报的形式总结下这几个月所做的事情和思考。</p>
+]]></content>
+    </entry>
+    <entry>
+        <title type="html"><![CDATA[在macOS环境下配置tomcat]]></title>
+        <id>https://jingdaliu.github.io/post/zai-macos-huan-jing-xia-pei-zhi-tomcat</id>
+        <link href="https://jingdaliu.github.io/post/zai-macos-huan-jing-xia-pei-zhi-tomcat">
+        </link>
+        <updated>2019-05-08T02:14:47.000Z</updated>
+        <content type="html"><![CDATA[<p><em>一、 下载</em><br>
+登录Apache Tomcat官网，地址 http://tomcat.apache.org ，点击左边的Download，选择需要下载的版本<br>
+<em>二、设置本地放置路径</em><br>
+把下载下来的包解压到 /Users/你的用户名/目录下<br>
+<em>三、启动Tomcat</em><br>
+打开终端<br>
+<img src="https://jingdaliu.github.io/post-images/1557281927244.png" alt=""><br>
+如果操作失败，缺少权限</p>
+<blockquote>
+<p>Permission denied</p>
+</blockquote>
+<p>赋予超级管理员权限</p>
+<pre><code>sudo chmod 755 *.sh
+</code></pre>
+<p>​	（在tomcat/bin文件夹下）</p>
+<pre><code>./startup.sh
+</code></pre>
+<p>就可以启动我们自己的Tomcat了<br>
+http://localhost:8080</p>
+<p><img src="https://jingdaliu.github.io/post-images/1557286033227.png" alt=""></p>
+]]></content>
+    </entry>
+    <entry>
+        <title type="html"><![CDATA[基于多帧叠加和窗口搜索的快速车道检测]]></title>
+        <id>https://jingdaliu.github.io/post/ji-yu-duo-zheng-die-jia-he-chuang-kou-sou-suo-de-kuai-su-che-dao-jian-ce</id>
+        <link href="https://jingdaliu.github.io/post/ji-yu-duo-zheng-die-jia-he-chuang-kou-sou-suo-de-kuai-su-che-dao-jian-ce">
+        </link>
+        <updated>2019-04-29T01:53:24.000Z</updated>
+        <content type="html"><![CDATA[<p>摘要 　 车道检测是辅助驾驶和自动驾驶的重要研究内容.针对现有车道检测算法的鲁棒性和复杂度较难均衡等问 题,提出一种基于多帧叠 加 和 窗 口 搜 索 的 快 速 车 道 检 测 算 法.首 先,通 过 逆 透 视 变 换 ( IPM ) 把 指 定 的 感 兴 趣 区 域 ( ROI 转换成鸟瞰图,结合多帧叠加的方法把 RGB 图像转化成二值图.其次,根据近视场中的像素密度分布,计算当 ) 前帧的车道线起始点,并采用滑动窗口搜索的方法提取整个车道线.最后,根据车道线的特征,选择不同的车道模型, 使用最小二乘法( LSE ) 拟合得到模型参数.大量的实际道路行驶测试结果表明,该算法能快速地检测车道线,并具有 一定的鲁棒性和准确性.</p>
+<p>关键词 　 辅助驾驶,车道检测,多帧叠加,窗口搜索</p>
+<p>１</p>
+<p>引言</p>
+<p>科技的不断创新和经济的持续增长带动了交通事业的快 速发展,人们在注重驾驶的安全性的同时也开始关注行驶的 舒适性和高效性,因此辅助驾驶和自动驾驶汽车成为了重要 的研究课题.车道检测是辅助驾驶和自动驾驶的基本功能, 用于确定车辆在当前车道内的位置,为车道偏离决策提供判 断依据.</p>
+<p>目前基于视觉的车道检测方法主要有两大类:</p>
+<p>１ ) 基于深 度学习的车道检测技术  , 主要采用多层的卷积神经网络, 无需人为定义特征,能在行驶过程中通过不断学习完成车道 的识别.该技术具有检测精度高、鲁棒性强等优点,美中不足的是计算复 杂 度 高,需 要 性 能 较 强 的 GPU 才 能 完 成 工 作.</p>
+<p>２ ) 基于传统方法的车道检测技术,主要有 图 像 特 征 法 和 模 型 匹配法.图像特征法通过分析底层的图像特征,如车道颜色、 边缘和纹理等,作为车道线分割和提取的依据模型匹配 法主要采用不 同 的 道 路 模 型(如 直 线 模 型 、 曲 线 模 型、 B 样条模型 等来实现结构化的车道检测,此方法对固定结构 的车道具有较好的识别效果,但适应性差,在光照变化、噪声 干扰或 车 道 线 不 连 续 的 情 况 下 达 不 到 预 期 的 检 测 效 果Borkar 等提出了一种随机抽样一致( Densit y ＧBasedS p atial 方法来排除 Clusterin go fA pp licationwithNoise , RANSAC ) 车道线外的 干 扰,首 先 使 用 最 小 二 乘 法 ( LeastS q uares MeＧ thod , LSE ) 拟合车道线,然后用卡尔曼滤波器( KalmanFilter )对车道线的参数进行跟踪估计. Lee 等结合了模型分解方 法,提出了 采 用 级 联 粒 子 滤 波 器 的 鲁 棒 车 道 检 测 算 法. Ju 等提出了一种基于消失点估计的车道检测方法,该方法从 图像中提取线段的交叉点,采用概率投票方法解决消失点的 问题.上述 ３ 种算法虽然精度较高,但存在计算量大、处理耗 时较长等问题,并不适合在嵌入式系统中应用.</p>
+<p>针对现有车道 检 测 算 法 较 难 均 衡 鲁 棒 性 和 复 杂 度 的 问 题,本文提出一种基于多帧叠加和滑动窗口搜索的快速车道 检测算法.该算法具有以下优势: 采用指定区域的逆透变 １ ) 换( InversePers p ectiveMa pp in g , IPM ) 和 多 帧 叠 加 的 预 处 理 方法,既减少了 图 像 处 理 的 数 据 量,又 降 低 了 周 围 环 境 的 干 扰,使得转换后的图像具有鲁棒性强等特点; ２ ) 利用像素密度 分布、滑动窗口搜索、不同车道模型定义的方法检测车道线, 算法不仅时间复杂度低,而且在汽车震动、车道标识线干扰、 变更车道等条件下也能稳定地工作.</p>
+<p>２</p>
+<p>快速车道检测算法的流程</p>
+<p>本文算法主要包括图像预处理、车道线识别、车道线拟合 和车道线输出四大部分,如图 １ 所示.图像预处理的主要流 程为:首先,通过逆透视变换( IPM ) 把指定的感兴趣区域转换 成鸟瞰图( bird ’ sＧe y eview ); 其次,为了提高边缘检测的效果,</p>
+<p>将黄色车道线和普通车道线分开检测,各自结合多帧叠加的 , 方法把 RGB 图转换成二值图,并进行像素的“或运算” 合并 两者的输出结果;最后,采用形态学开运算,删除不能包含结 构元素的对象区域,平滑对象的轮廓,以排除二值化后的干扰 和噪声信号.</p>
+<p><img src="https://jingdaliu.github.io/post-images/1556503883006.jpg" alt=""></p>
+]]></content>
+    </entry>
+    <entry>
+        <title type="html"><![CDATA[Typora极简教程]]></title>
+        <id>https://jingdaliu.github.io/post/typora-ji-jian-jiao-cheng</id>
+        <link href="https://jingdaliu.github.io/post/typora-ji-jian-jiao-cheng">
+        </link>
+        <updated>2019-04-28T15:27:36.000Z</updated>
+        <content type="html"><![CDATA[<blockquote>
+<p>” <strong>Markdown</strong> 是一种<strong>轻量级</strong>标记语言，创始人是<strong>约翰·格鲁伯</strong>（John Gruber）。它允许人们 “使用易读易写的纯文本格式编写文档，然后转换成有效的 HTML 文档。”</p>
+</blockquote>
+<h3 id="1-基本操作">1. 基本操作</h3>
+<h4 id="11-内容目录">1.1 内容目录</h4>
+<hr>
+<ul>
+<li>语法</li>
+</ul>
+<pre><code>[toc]
+</code></pre>
+<h4 id="12-标题">1.2 标题</h4>
+<hr>
+<ul>
+<li>语法</li>
+</ul>
+<pre><code>#       一级标题    
+##      二级标题    
+###     三级标题    
+####    四级标题    
+#####   五级标题    
+######  六级标题    
+</code></pre>
+<h4 id="13-引用">1.3 引用</h4>
+<hr>
+<ul>
+<li>语法</li>
+</ul>
+<pre><code>&gt; 引用内容1
+&gt; 引用内容2
+&gt;&gt; 引用内容3
+</code></pre>
+<ul>
+<li>效果</li>
+</ul>
+<blockquote>
+<p>引用内容1<br>
+引用内容2</p>
+<blockquote>
+<p>引用内容3</p>
+</blockquote>
+</blockquote>
+<h3 id="2-代码">2. 代码</h3>
+<h4 id="21-单行代码">2.1 单行代码</h4>
+<hr>
+<ul>
+<li>语法</li>
+</ul>
+<pre><code>`String str1 = &quot;hello&quot;;`
+</code></pre>
+<ul>
+<li>效果</li>
+</ul>
+<pre><code>String str1 = &quot;hello&quot;;
+</code></pre>
+<h4 id="22-多行代码">2.2 多行代码</h4>
+<hr>
+<ul>
+<li>语法</li>
+</ul>
+<pre><code>~~~
+​```
+~~~java
+​```c
+</code></pre>
+<ul>
+<li>效果</li>
+</ul>
+<pre><code>int a = 10;
+int b = 20;
+</code></pre>
+<h3 id="3-列表">3. 列表</h3>
+<h4 id="31-无序列表">3.1 无序列表</h4>
+<hr>
+<ul>
+<li>语法</li>
+</ul>
+<pre><code>* 无序列表1
++ 无序列表2
+- 无序列表3
+</code></pre>
+<ul>
+<li>效果</li>
+<li>无序列表1</li>
+<li>无序列表2</li>
+<li>无序列表3</li>
+</ul>
+<h4 id="32-多行无序列表">3.2 多行无序列表</h4>
+<hr>
+<ul>
+<li>语法</li>
+</ul>
+<pre><code>* 多行无序列表1
+TAB * 多行无序列表2
+TAB TAB * 多行无序列表3
+</code></pre>
+<ul>
+<li>效果</li>
+<li>多行无序列表1
+<ul>
+<li>多行无序列表2
+<ul>
+<li>多行无序列表3</li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+<h4 id="33-有序列表">3.3 有序列表</h4>
+<hr>
+<ul>
+<li>语法</li>
+</ul>
+<pre><code>1. 有序列表1
+2. 有序列表2
+3. 有序列表3
+
+</code></pre>
+<ul>
+<li>效果</li>
+</ul>
+<ol>
+<li>有序列表1</li>
+<li>有序列表2</li>
+<li>有序列表3</li>
+</ol>
+<h4 id="34-多行有序列表">3.4 多行有序列表</h4>
+<hr>
+<ul>
+<li>语法</li>
+</ul>
+<pre><code>1. 多行有序列表1
+2. 多行有序列表2
+    1. 多行有序列表2-1
+    2. 多行有序列表2-2
+3. 多行有序列表3
+    1. 多行有序列表3-1
+    2. 多行有序列表3-2
+
+</code></pre>
+<ul>
+<li>效果</li>
+</ul>
+<ol>
+<li>多行有序列表1</li>
+<li>多行有序列表2</li>
+<li>多行有序列表2-1</li>
+<li>多行有序列表2-2</li>
+<li>多行有序列表3</li>
+<li>多行有序列表3-1</li>
+<li>多行有序列表3-2</li>
+</ol>
+<h4 id="35-任务列表">3.5 任务列表</h4>
+<hr>
+<ul>
+<li>语法</li>
+</ul>
+<pre><code>-[ ] 抽烟
+-[x] 喝酒
+-[ ] 烫头
+
+</code></pre>
+<ul>
+<li>效果</li>
+</ul>
+<p>-[ ] 抽烟<br>
+-[x] 喝酒<br>
+-[ ] 烫头</p>
+<h4 id="36-表格">3.6 表格</h4>
+<hr>
+<ul>
+<li>语法</li>
+</ul>
+<pre><code>|姓名|性别|年龄|手机号|
+|:---|:--:|:--:|---:|
+|张三|男|21|18975346876|
+|李四|女|23|17789548964|
+|王五|男|25|15876513546|
+</code></pre>
+<ul>
+<li>效果</li>
+</ul>
+<table>
+<thead>
+<tr>
+<th style="text-align:left">姓名</th>
+<th style="text-align:center">性别</th>
+<th style="text-align:center">年龄</th>
+<th style="text-align:right">手机号</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align:left">张三</td>
+<td style="text-align:center">男</td>
+<td style="text-align:center">21</td>
+<td style="text-align:right">18975346876</td>
+</tr>
+<tr>
+<td style="text-align:left">李四</td>
+<td style="text-align:center">女</td>
+<td style="text-align:center">23</td>
+<td style="text-align:right">17789548964</td>
+</tr>
+<tr>
+<td style="text-align:left">王五</td>
+<td style="text-align:center">男</td>
+<td style="text-align:center">25</td>
+<td style="text-align:right">15876513546</td>
+</tr>
+</tbody>
+</table>
+<h3 id="4-链接">4. 链接</h3>
+<h4 id="41-图片">4.1 图片</h4>
+<hr>
+<ul>
+<li>语法1（<em>本地图片</em>）</li>
+</ul>
+<pre><code>[图片上传失败...(image-61fd19-1520850984854)]
+</code></pre>
+<ul>
+<li>语法2（<em>网络图片</em>）</li>
+</ul>
+<pre><code>![typora.jpg](https://upload-images.jianshu.io/upload_images/1538862-d91e815790b81e4a.jpg?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240)
+
+</code></pre>
+<ul>
+<li>效果2</li>
+</ul>
+<p><img src="https:////upload-images.jianshu.io/upload_images/1538862-d91e815790b81e4a.jpg?imageMogr2/auto-orient/strip%7CimageView2/2/w/539/format/webp" alt="img"></p>
+<p>typora.jpg</p>
+<h4 id="42-超链接">4.2 超链接</h4>
+<hr>
+<ul>
+<li>语法1（<em>行内式链接</em>）</li>
+</ul>
+<pre><code>[百度][https://www.baidu.com/]
+
+</code></pre>
+<ul>
+<li>效果1</li>
+</ul>
+<p>[百度][<a href="https://link.jianshu.com?t=https%3A%2F%2Fwww.baidu.com%2F%255D">https://www.baidu.com/]</a></p>
+<ul>
+<li>语法2（<em>参考式链接</em>）</li>
+</ul>
+<pre><code>[CSDN][CSDN网址]
+[CSDN网址]:https://www.csdn.net/
+
+</code></pre>
+<ul>
+<li>效果2</li>
+</ul>
+<p><a href="https://link.jianshu.com?t=https%3A%2F%2Fwww.csdn.net%2F">CSDN</a></p>
+<ul>
+<li>语法3（<em>自动链接</em>）</li>
+</ul>
+<pre><code>&lt;https://github.com/&gt;
+</code></pre>
+<ul>
+<li>效果2</li>
+</ul>
+<p><a href="https://link.jianshu.com?t=https%3A%2F%2Fgithub.com%2F">https://github.com/</a></p>
+<h3 id="5-其他">5. 其他</h3>
+<h4 id="51-斜体">5.1 斜体</h4>
+<hr>
+<ul>
+<li>语法</li>
+</ul>
+<pre><code>*斜体*
+_斜体_
+</code></pre>
+<ul>
+<li>效果</li>
+</ul>
+<p><em>斜体</em><br>
+<em>斜体</em></p>
+<h4 id="52-加粗">5.2 加粗</h4>
+<hr>
+<ul>
+<li>语法</li>
+</ul>
+<pre><code>**加粗**
+__加粗__
+
+</code></pre>
+<ul>
+<li>效果</li>
+</ul>
+<p><strong>加粗</strong><br>
+<strong>加粗</strong></p>
+<h4 id="53-下划线">5.3 下划线</h4>
+<hr>
+<ul>
+<li>语法</li>
+</ul>
+<pre><code>&lt;u&gt;下划线&lt;/u&gt;
+</code></pre>
+<ul>
+<li>效果</li>
+</ul>
+<p><u>下划线</u></p>
+<h4 id="54-删除线">5.4 删除线</h4>
+<hr>
+<ul>
+<li>语法</li>
+</ul>
+<pre><code>~~删除线~~
+</code></pre>
+<ul>
+<li>效果</li>
+</ul>
+<p><s>删除线</s></p>
+<h4 id="55-分隔线">5.5 分隔线</h4>
+<hr>
+<ul>
+<li>语法</li>
+</ul>
+<pre><code>***
+---
+___
+</code></pre>
+<ul>
+<li>效果</li>
+</ul>
+<hr>
+<hr>
+<hr>
+<h4 id="56-注脚">5.6 注脚</h4>
+<hr>
+<ul>
+<li>语法</li>
+</ul>
+<pre><code>Typora[^1]
+[^1]A markdown editor
+</code></pre>
+<ul>
+<li>效果</li>
+</ul>
+<p>Typora[<a href="#fn1">1]</a></p>
+<h4 id="57-上下标">5.7 上下标</h4>
+<hr>
+<ul>
+<li>语法</li>
+</ul>
+<pre><code>$3^2=9$
+$3^{(3-1)}=9$
+$H_2SO_4$
+$H_{2SO_4}$
+</code></pre>
+<ul>
+<li>效果</li>
+</ul>
+<p><span class="katex"><span class="katex-mathml"><math><semantics><mrow><msup><mn>3</mn><mn>2</mn></msup><mo>=</mo><mn>9</mn></mrow><annotation encoding="application/x-tex">3^2=9</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.8141079999999999em;vertical-align:0em;"></span><span class="mord"><span class="mord">3</span><span class="msupsub"><span class="vlist-t"><span class="vlist-r"><span class="vlist" style="height:0.8141079999999999em;"><span style="top:-3.063em;margin-right:0.05em;"><span class="pstrut" style="height:2.7em;"></span><span class="sizing reset-size6 size3 mtight"><span class="mord mtight">2</span></span></span></span></span></span></span></span><span class="mspace" style="margin-right:0.2777777777777778em;"></span><span class="mrel">=</span><span class="mspace" style="margin-right:0.2777777777777778em;"></span></span><span class="base"><span class="strut" style="height:0.64444em;vertical-align:0em;"></span><span class="mord">9</span></span></span></span><br>
+<span class="katex"><span class="katex-mathml"><math><semantics><mrow><msup><mn>3</mn><mrow><mo>(</mo><mn>3</mn><mo>−</mo><mn>1</mn><mo>)</mo></mrow></msup><mo>=</mo><mn>9</mn></mrow><annotation encoding="application/x-tex">3^{(3-1)}=9</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.8879999999999999em;vertical-align:0em;"></span><span class="mord"><span class="mord">3</span><span class="msupsub"><span class="vlist-t"><span class="vlist-r"><span class="vlist" style="height:0.8879999999999999em;"><span style="top:-3.063em;margin-right:0.05em;"><span class="pstrut" style="height:2.7em;"></span><span class="sizing reset-size6 size3 mtight"><span class="mord mtight"><span class="mopen mtight">(</span><span class="mord mtight">3</span><span class="mbin mtight">−</span><span class="mord mtight">1</span><span class="mclose mtight">)</span></span></span></span></span></span></span></span></span><span class="mspace" style="margin-right:0.2777777777777778em;"></span><span class="mrel">=</span><span class="mspace" style="margin-right:0.2777777777777778em;"></span></span><span class="base"><span class="strut" style="height:0.64444em;vertical-align:0em;"></span><span class="mord">9</span></span></span></span><br>
+<span class="katex"><span class="katex-mathml"><math><semantics><mrow><msub><mi>H</mi><mn>2</mn></msub><mi>S</mi><msub><mi>O</mi><mn>4</mn></msub></mrow><annotation encoding="application/x-tex">H_2SO_4</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.83333em;vertical-align:-0.15em;"></span><span class="mord"><span class="mord mathdefault" style="margin-right:0.08125em;">H</span><span class="msupsub"><span class="vlist-t vlist-t2"><span class="vlist-r"><span class="vlist" style="height:0.30110799999999993em;"><span style="top:-2.5500000000000003em;margin-left:-0.08125em;margin-right:0.05em;"><span class="pstrut" style="height:2.7em;"></span><span class="sizing reset-size6 size3 mtight"><span class="mord mtight">2</span></span></span></span><span class="vlist-s">​</span></span><span class="vlist-r"><span class="vlist" style="height:0.15em;"><span></span></span></span></span></span></span><span class="mord mathdefault" style="margin-right:0.05764em;">S</span><span class="mord"><span class="mord mathdefault" style="margin-right:0.02778em;">O</span><span class="msupsub"><span class="vlist-t vlist-t2"><span class="vlist-r"><span class="vlist" style="height:0.30110799999999993em;"><span style="top:-2.5500000000000003em;margin-left:-0.02778em;margin-right:0.05em;"><span class="pstrut" style="height:2.7em;"></span><span class="sizing reset-size6 size3 mtight"><span class="mord mtight">4</span></span></span></span><span class="vlist-s">​</span></span><span class="vlist-r"><span class="vlist" style="height:0.15em;"><span></span></span></span></span></span></span></span></span></span></p>
+<p><span class="katex"><span class="katex-mathml"><math><semantics><mrow><msub><mi>H</mi><mrow><mn>2</mn><mi>S</mi><msub><mi>O</mi><mn>4</mn></msub></mrow></msub></mrow><annotation encoding="application/x-tex">H_{2SO_4}</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.93343em;vertical-align:-0.2501em;"></span><span class="mord"><span class="mord mathdefault" style="margin-right:0.08125em;">H</span><span class="msupsub"><span class="vlist-t vlist-t2"><span class="vlist-r"><span class="vlist" style="height:0.32833099999999993em;"><span style="top:-2.5500000000000003em;margin-left:-0.08125em;margin-right:0.05em;"><span class="pstrut" style="height:2.7em;"></span><span class="sizing reset-size6 size3 mtight"><span class="mord mtight"><span class="mord mtight">2</span><span class="mord mathdefault mtight" style="margin-right:0.05764em;">S</span><span class="mord mtight"><span class="mord mathdefault mtight" style="margin-right:0.02778em;">O</span><span class="msupsub"><span class="vlist-t vlist-t2"><span class="vlist-r"><span class="vlist" style="height:0.31731428571428577em;"><span style="top:-2.357em;margin-left:-0.02778em;margin-right:0.07142857142857144em;"><span class="pstrut" style="height:2.5em;"></span><span class="sizing reset-size3 size1 mtight"><span class="mord mtight">4</span></span></span></span><span class="vlist-s">​</span></span><span class="vlist-r"><span class="vlist" style="height:0.143em;"><span></span></span></span></span></span></span></span></span></span></span><span class="vlist-s">​</span></span><span class="vlist-r"><span class="vlist" style="height:0.2501em;"><span></span></span></span></span></span></span></span></span></span></p>
+<h4 id="58-符号的输入">5.8 符号的输入</h4>
+<hr>
+<ul>
+<li>语法</li>
+</ul>
+<pre><code>\\   反斜线
+\`   反引号
+\*   星号
+\_   底线
+\{ \}  花括号
+\[ \]  方括号
+\( \)  括弧
+\#   井字号
+\+   加号
+\-   减号
+\.   英文句点
+\!   惊叹号
+</code></pre>
+<ul>
+<li>效果</li>
+</ul>
+<p>\   `   *   _  { }  [ ]  ( )  #   +  -  .   !</p>
+<h4 id="59-特殊字符">5.9 特殊字符</h4>
+<hr>
+<ul>
+<li>语法</li>
+</ul>
+<pre><code>&amp;copy;      版权      
+&amp;reg;       注册商标
+&amp;trade;     商标
+&amp;nbsp;      空格
+&amp;amp;       和号
+&amp;quot;      引号
+&amp;apos;      撇号
+&amp;lt;        小于号
+&amp;gt;        大于号
+&amp;ne;        不等号
+&amp;le;        小于等于
+&amp;ge;        大于等于
+&amp;cent;      分
+&amp;pound;     磅
+&amp;euro;      欧元
+&amp;yen;       元
+&amp;sect;      节
+&amp;times;     乘号
+&amp;divide;    除号
+&amp;plusmn;    正负号
+</code></pre>
+<ul>
+<li>
+<p>效果</p>
+<p>©<br>
+®<br>
+™</p>
+<p>&amp;<br>
+&quot;<br>
+'<br>
+&lt;<br>
+&gt;<br>
+≠<br>
+≤<br>
+≥<br>
+¢<br>
+£<br>
+€<br>
+¥<br>
+§<br>
+×<br>
+÷<br>
+±</p>
+</li>
+</ul>
+]]></content>
+    </entry>
+    <entry>
+        <title type="html"><![CDATA[刘竞达项目总结@ZJU KSII AILAB]]></title>
+        <id>https://jingdaliu.github.io/post/liu-jing-da-xiang-mu-zong-jie-zju-ksii-ailab</id>
+        <link href="https://jingdaliu.github.io/post/liu-jing-da-xiang-mu-zong-jie-zju-ksii-ailab">
+        </link>
+        <updated>2019-04-28T12:13:46.000Z</updated>
+        <content type="html"><![CDATA[<p><img src="https://jingdaliu.github.io/post-images/1556456204124.jpeg" alt=""></p>
+<p>后续会把源码放到GitHub上面。</p>
+<p>人脸识别项目（年龄检测）</p>
+<p>**一、**YOLO年龄检测项目汇报</p>
+<p>\1. 使用检测方法进行训练</p>
+<p>打标签</p>
+<p>配置darknet</p>
+<p>上传数据集、更改网络模型</p>
+<p>对数据进行迭代计算</p>
+<p>对产生模型进行测试</p>
+<p>存在问题：检测正确率低</p>
+<p>解决方法：使用分类的方法进行训练</p>
+<p>\2. 使用分类方法进行训练</p>
+<p>更改数据集格式并进行上传</p>
+<p>重写网络模型</p>
+<p>对数据进行迭代计算</p>
+<p>对产生模型进行测试</p>
+<p>使用不同来源图片进行测试</p>
+<p>存在问题：分类准确率一般、训练时对数据集要求较高</p>
+<p>解决方法：增加数据集的来源，尽可能包含多种特征，</p>
+<h3 id="二-opencv_cascadetrain训练总结">二、opencv_cascadetrain训练总结</h3>
+<h4 id="opencv支持三种特征提取训练检测">OpenCV支持三种特征提取训练检测：</h4>
+<p>\1. Haar：的优势在于能更好的描述明暗变化，因此用于检测正面的人脸。</p>
+<p>\2. LBP：比haar快很多倍，但是提取的准确率会低（10-20% 取决于训练对象）如果是嵌入式或者移动端的开发，推荐使用LBP。</p>
+<p>\3. Hog：与其他的特征描述方法相比，HOG有很多优点。首先，由于HOG是在图像的局部方格单元上操作，所以它对图像几何的和光学的形变都能保持很好的不变性，这两种形变只会出现在更大的空间领域上。其次，在粗的空域抽样、精细的方向抽样以及较强的局部光学归一化等条件下，只要行人大体上能够保持直立的姿势，可以容许行人有一些细微的肢体动作，这些细微的动作可以被忽略而不影响检测效果。因此HOG特征是特别适合于做图像中的人体检测的。</p>
+<h4 id="训练步骤">训练步骤</h4>
+<p><strong>1、搜集正样本、负样本</strong></p>
+<p>· 正样本：只含有目标的局部图（若是全图，则需要把目标截取出来，比如训练人脸，则把人脸从含有人脸的图片中截取出来，尺寸要一致），且背景不要太过复杂，灰度图</p>
+<p>· 正样本大小：20<em>20(一般用于Haar特征)，24</em>24（LBP特征）</p>
+<p>· 正样本数量：一般大于等于2000</p>
+<p>· 负样本：不含目标的任何图片，灰度图</p>
+<p>· 负样本大小：60*60</p>
+<p>· 负样本数量：一般大于等于5000</p>
+<p>· 注：正样本尺寸越小，训练的时间越短，但正样本的尺寸要保证小于负样本的尺寸</p>
+<p>**2、**<strong>新建文件夹</strong></p>
+<p><img src="https://ws2.sinaimg.cn/large/006tNc79gy1g27oji7uk2j30bk031gm1.jpg" alt="img"></p>
+<p>**3、**<strong>制作.bat文件和路径文件</strong></p>
+<p>· Pos.bat</p>
+<p>dir /b &gt; pos.txt</p>
+<p>做出如下更改</p>
+<p><img src="https://ws4.sinaimg.cn/large/006tNc79gy1g27ojhruj2j305c039wev.jpg" alt="img"></p>
+<p>· neg文件夹：存放负样本</p>
+<p>· neg.txt</p>
+<p>dir /b /s &gt; neg.txt</p>
+<p><img src="https://ws2.sinaimg.cn/large/006tNc79gy1g27ojk3rd2j305j03kq3k.jpg" alt="img"></p>
+<p>· data文件夹：存放训练的xml格式文件</p>
+<p>**4、**<strong>生成pos.vec文件</strong></p>
+<p>· 使用opencv_createsamples.exe程序</p>
+<p>· createsamples.bat：</p>
+<p>opencv_createsamples.exe -info pos/pos.txt -vec pos.vec -num 344 -w 32 -h 32</p>
+<p>pause</p>
+<p>**6、**<strong>进行训练</strong></p>
+<p>opencv_traincascade.exe -data data -vec pos.vec -bg neg.txt -numPos 200 -numNeg 200 -numStages 100 -w 32 -h 32 -minHitRate 0.999 maxFalseAlarmRate 0.5 -precalcValBufSize 256 -precalcIdxBufSize 256 -mode ALL</p>
+<p>pause</p>
+<p>numStages的参数一般默认为20，最好大于等于20，级数太小的话，训练的效果较差</p>
+<p>**7、**<strong>训练结果</strong></p>
+<p><img src="https://ws2.sinaimg.cn/large/006tNc79gy1g27ojfsmewj3076076dgv.jpg" alt="img"></p>
+<p><strong>8、进行测试</strong></p>
+<p><img src="https://ws1.sinaimg.cn/large/006tNc79gy1g27ojikyl3j303k034abc.jpg" alt="img"></p>
+<p>**9、**<strong>出现问题</strong></p>
+<p>· 精确度过低</p>
+<p>· 可以调用opencv模型识别人脸</p>
+<p>· 训练时间过慢</p>
+<p>10、解决方案</p>
+<p>· 	增加训练层数</p>
+<p>· 调试成熟模型</p>
+<p>· 使用dilb+HOG进行训练</p>
+<h2 id="车道线检测"><strong>车道线检测</strong></h2>
+<p>车道检测是辅助驾驶和自动驾驶的重要研究内容.针对现有车道检测算法的鲁棒性和复杂度较难均衡等问题,提出一种基于多帧叠加和窗口搜索的快速车道检测算法. 首先,通过逆透视变换(IPM)把指定的感兴趣区域(ROI)转换成鸟瞰图,结合多帧叠加的方法把 RGB 图像转化成二值图.其次,根据近视场中的像素密度分布,计算当前帧的车道线起始点,并采用滑动窗口搜索的方法提取整个车道线.最后,根据车道线的特征,选择不同的车道模型,使用最小二乘法(LSE)拟合得到模型参数.大量的实际道路行驶测试结果表明,该算法能快速地检测车道线,并具有一定的鲁棒性和准确性。</p>
+<p>车道线检测流程图</p>
+<p><img src="https://ws3.sinaimg.cn/large/006tNc79gy1g27ojfc9s9j309s0aet9e.jpg" alt="img"></p>
+<p>一、视频拆分成帧并保存为png</p>
+<p><img src="https://ws1.sinaimg.cn/large/006tNc79gy1g27ojgq3z4j305s06rt96.jpg" alt="img"><img src="https://ws2.sinaimg.cn/large/006tNc79gy1g27ojg879kj305a06ymxk.jpg" alt="img"></p>
+<p>效果</p>
+<p><img src="https://ws3.sinaimg.cn/large/006tNc79gy1g27ojem9fpj30bb03t0tn.jpg" alt="img"></p>
+<p>二、将每一帧进行灰度化</p>
+<p><img src="https://ws1.sinaimg.cn/large/006tNc79gy1g27ojh6ummj30a20aa75h.jpg" alt="img"></p>
+<p><img src="https://ws4.sinaimg.cn/large/006tNc79gy1g27ojjhvdzj30cf05hjsb.jpg" alt="img"></p>
+<p>三、车道线检测</p>
+<p><img src="https://ws2.sinaimg.cn/large/006tNc79gy1g27ojj23kxj30bq0560te.jpg" alt="img"></p>
+]]></content>
+    </entry>
+    <entry>
+        <title type="html"><![CDATA[关于职业的一些思考]]></title>
+        <id>https://jingdaliu.github.io/post/guan-yu-zhi-ye-de-yi-xie-si-kao</id>
+        <link href="https://jingdaliu.github.io/post/guan-yu-zhi-ye-de-yi-xie-si-kao">
+        </link>
+        <updated>2019-04-02T07:18:19.000Z</updated>
+        <content type="html"><![CDATA[<p>最近申请UM-DataScience项目，请了大学老师和工作过的实验室老师写推荐信，然后遇到了一个很扎心的问题。我的大学老师和实验室领导并不认识，但是在帮我写完推荐信后，却不谋而合的做了同一件事，他们都很认真的问我：</p>
+<p>『是否真的考虑好了，真的要当程序员吗？』</p>
+<p>『其实我也不知道』</p>
+<p>3月底来到武汉后，每天都忙的找不到北，每天晚上都是十一点多才回家，洗完澡后属于自己的时间真的是屈指可数，然后刷一会手机就已经快两点了，长期的熬夜和压力让自己情绪也很不稳定，自己也对未来的职业规划开始有了困惑。说来也巧，3月26日，GitHub上996.icu开始爆火，关于996话题的热度也一直没有降过,到后来马云和刘强东也参入了讨论，引发的争议也是层出不穷。3月31日，1818黄金眼报道了<a href="http://s.weibo.com/weibo?q=%23%E5%B0%8F%E4%BC%99%E9%AA%91%E8%BD%A6%E9%80%86%E8%A1%8C%E8%A2%AB%E6%8B%A6%E5%90%8E%E7%88%86%E5%8F%91%23">#小伙骑车逆行被拦后爆发#</a> 称压力好大，再一次点燃了大家对程序员压力的讨论。那两几天我的状态也不好，每天忙成这样，代码还是搞不懂，日均睡眠时间五个多小时，同时还有脱产的压力。在微博和知乎刷了很多关于996和杭州小伙的评论，有的评论真的是字字锥心，那种难过的窒息感真的是感同身受。</p>
+<p>申请UM那天，和大学老师通话了很久，他给我分析了很多，包括2019年就业形势的不景气，包括我去学习DataScience能否顺利结业（…）以及我毕业后能否找到更好的工作（他一直觉得我之前的事业单位挺好的，而且为我隐瞒了我离职的事情），他还通过他的经历告诉我好的单位一票难求，如今师大同等职位本土博士都已经不招了，最后他还问我是否真的热爱编程，如果不是足够热爱，这个工作会很辛苦。半小时后实验室的老师也说了同样的话...</p>
+<p><img src="https://ws4.sinaimg.cn/large/006tNc79gy1g23csmwz3hj30qs14gafs.jpg" alt="image-20190415153237232"></p>
+<p>师长、领导、家人和朋友几乎给了我一样的评价和建议。</p>
+<p>其实我也很困惑。</p>
+<p>早晨和网易的基友聊了蛮久</p>
+<p><img src="https://ws2.sinaimg.cn/large/006tNc79gy1g23eox6er4j30u01hdgrp.jpg" alt="311555317301_.pic_hd"></p>
+<p><img src="https://ws3.sinaimg.cn/large/006tNc79gy1g23ep1q1vzj30u01hdgrm.jpg" alt="321555317319_.pic_hd"></p>
+<h3 id=""><img src="https://ws2.sinaimg.cn/large/006tNc79gy1g23ep6vxkmj30u01hd44n.jpg" alt="331555317346_.pic_hd"></h3>
+<p><img src="https://ws4.sinaimg.cn/large/006tNc79gy1g23epn90gdj30u01hdn2x.jpg" alt="341555317364_.pic_hd"></p>
+<p><img src="https://ws2.sinaimg.cn/large/006tNc79gy1g23epx0pbmj30td1g879q.jpg" alt="351555317474_.pic_hd"></p>
+<p><img src="https://ws1.sinaimg.cn/large/006tNc79gy1g23eq49ducj30u01hdtf6.jpg" alt="361555317475_.pic_hd"></p>
+<p><img src="https://ws2.sinaimg.cn/large/006tNc79gy1g23eqdfzpkj30u01hdn3m.jpg" alt="371555317478_.pic_hd"></p>
+<p><img src="https://ws4.sinaimg.cn/large/006tNc79gy1g23eqlv42jj30th1ggdkw.jpg" alt="381555317479_.pic_hd"></p>
+<h2 id="附上基友送我的乔帮主的表情包">附上基友送我的乔帮主的表情包</h2>
+<p><img src="https://ws2.sinaimg.cn/large/006tNc79gy1g23eqryyzsj30dw08odmu.jpg" alt="391555317483_.pic_hd"></p>
+<h2 id="datascience的课程">DataScience的课程</h2>
+<p>FST提供的4門基礎數據科學科目使學生能夠獲得：</p>
+<p>– 使用編程語言來處理數據，產生數據可視化，並解釋這些可視化數據;</p>
+<p>– 了解不同領域的大數據分析、開發的數據庫和數據挖掘概念及技術;</p>
+<p>– 了解數據可視化在數據科學和大數據分析中的重要意義，獲取知識和技能以使用數據可視化工具呈現大量數據;</p>
+<p>– 學習基本的深度學習方法;</p>
+<p>– Bayesian Networks(貝葉斯網絡);</p>
+<p>– CNN (卷積神經網絡);</p>
+<p>– 表征學習和強化學習。</p>
+<p>基礎科目:</p>
+<p>數據科學編程引論</p>
+<p>數據科學與數據可視化</p>
+<p>數據庫和數據挖掘技術</p>
+<p>機器學習工具</p>
+]]></content>
+    </entry>
+    <entry>
+        <title type="html"><![CDATA[暗时间]]></title>
+        <id>https://jingdaliu.github.io/post/an-shi-jian</id>
+        <link href="https://jingdaliu.github.io/post/an-shi-jian">
+        </link>
+        <updated>2019-04-01T01:10:41.000Z</updated>
+        <content type="html"><![CDATA[<p>如果你有一台计算机，你装了一个系统之后就整天把它搁置在那里，你觉得这台计算机被实际使用了吗？没有。因为CPU整天运行的就是空闲进程。运行空闲进程也是一天，运行大数据量计算的程序也是一天，对于CPU来说同样的一天，价值却是完全不一样的。</p>
+<p>大脑也是如此。</p>
+<p>善于利用思维时间的人，可以无形中比别人多出很多时间，从而实际意义上能比别人多活很多年。我们经常听说“心理年龄”这个词，思考得多的人，往往心理年龄更大。有人用10年才能领悟一个道理，因为他们是被动领悟——只有在现实撞到他脸上的时候才感到疼，疼完了之后还是不记得时时提醒自己，结果很快时过境迁抛之脑后，等到第二次遇到同一个坑的时候早忘了曾经跌过跟头了，像这样的效率，除非天天摔坑里，否则遗忘的效率总是大过吃亏长的记性。善于利用思维时间的人则能够在重要的事情上时时主动提醒自己，将临时的记忆变成硬编码的行为习惯。</p>
+<p>每个人的手表都走得一样快，但每个人的生命却不是。衡量一个人生活了多少年，应该用思维时间来计算。举一个极端的例子，如果一个人从生下来开始就呆在一个为他特殊建造的无菌保护室里，没有社会交往，没有知识获取，度过了18年，你会不会认为他成年了？</p>
+<p>认为时间对每个人是均等的是一个错觉，认为别人有一天，我也有一天，其实根本不是这样。如果你正在学习一门专业，你使用自己所投入的天数来衡量，很容易会产生一种错觉，认为投入了不少时间，然而其实，“投入时间”这个说法本身就是荒唐的，实际投入的是时间和效率的乘积。你可以“投入”很多时间在一件事情上面，却发现毫无进展，因为你没有整天把你要做的事情，要学习的东西常驻在你的大脑中，时刻给予它最高的优先级。你走路的时候吃饭的时候，做梦的时候心心念念想的就是这件事情，你的CPU总是分配给它，这个时候你的思维时间就被利用到了极致，你投入的时间就真正等于了实际流逝的时间，因为你的CPU是满载的。</p>
+<p>如果你有做总结的习惯，你在度过一段时间之后总结自己在某某领域投入了多少时间，建议千万不要粗略地去计算有多少天下班后拿起书来翻看过，因为这样你也许会发现书倒是常翻，但领悟却不见得多深，表面上花的时间不少，收益却不见得那么大。因为看书并记住书中的东西只是记忆，并没有涉及推理，只有靠推理才能深入理解一个事物，看到别人看不到的地方，这部分推理的过程就是你的思维时间，也是人一生中占据一个显著比例的“<strong>暗时间</strong>”，你走路、买菜、洗脸洗手、坐公车、逛街、出游、吃饭、睡觉，所有这些时间都可以成为“暗时间”，你可以充分利用这些时间进行思考，反刍和消化平时看和读的东西，让你的认识能够脱离照本宣科的层面。这段时间看起来微不足道，但日积月累将会产生庞大的效应。</p>
+<p>能够充分利用暗时间的人将无形中多出一大块生命，你也许会发现这样的人似乎玩得不比你少，看得不比你多，但不知怎么的就是比你走得更远。比如我就经常发现一些国外的牛人们为什么不仅学习牛逼，连“业余”玩儿的东东也都搞得特牛逼，一点都不业余（上次在<a href="http://www.douban.com/subject/3440613/">《How We Decide》</a>上看到<a href="http://en.wikipedia.org/wiki/Michael_Binger">斯坦福的一个牛人</a>，理论物理学博士，同时是世界扑克大赛的前六名保持者，迄今累计奖金拿了六百多万刀），你会奇怪，<strong>这些家伙到底哪来的时间，居然可以在不止一个领域做到卓越</strong>？</p>
+<p>程序员们都知道，任务切换需要耗费许多额外的花销，通俗地来讲，首先需要保存当前上下文以便下次能够顺利切换回来，然后要加载目标任务的上下文。如果一个系统不停地在多个任务之间来回倒腾，就会耗费大量的时间在上下文切换上，无形中浪费很多的时间。</p>
+<p>相比之下，如果只做一件任务，就不会有此损失。这就是为什么专注的人比不专注的人时间利用效率高得多的原因。任务切换的暗时间看似非常不明显，甚至很多人认为“多任务”是件很好的事情（有时候的确是），但日积月累起来就会发现，消耗在切换上的时间越来越多。</p>
+<p>另外，大脑开始一件任务的时候必须要有一定时间来“热身”，这个时间因人而异，并且可以通过练习来改变。举个例子，你看了一会书之后，忽然感到一阵无聊，忍不住打开浏览器，十分钟后你想起来还要继续看书，但要回复到当时理想的状态，却需要一段时间来努力去集中精力，把记忆中相关的知识全都激活起来，从而才能进入“状态”，因为你上了十分钟网之后这些记忆已经被抑制了。如果这个“热身”状态需要一刻钟，那么看似十分钟的上网闲逛其实就花费了二十五分钟。</p>
+<p>如果阅读的例子还不够生动，对于程序员来说其实有更好的例子：你写程序写得正high，忽然被叫去开了一通会，写到一半的代码搁在那儿。等你开完会回来你需要多久能够重新进入状态？又或者，你正在调试程序，你已经花了二十分钟的时间把与这个bug可能相关的代码前前后后都理解了一遍，心中构建了一个大致的地图，就在这时，呃，你又被叫去开了个会(:D)，开完会回来，可想而知，得花上一些时间来回想一下刚刚弄清的东西了。</p>
+<p>迅速进入状态的能力是可以锻炼的，根据我个人的经验，至少可以缩短到3-5分钟。但要想完全进入状态，却是很难在这么短的时间实现的。所谓完全进入状态，举个例子：你看了3个小时的书，或者调试了半个小时的程序之后，往往满脑子都是相关的东西，所有这些知识都处在活跃状态，换言之你大脑中所有相关的记忆神经网络都被激活了，要达到这样一种忘记时间流逝的“沉浸”状态（心理学上叫做“<a href="http://en.wikipedia.org/wiki/Flow_%28psychology%29">流体验</a>”），不是三两分钟的事情。而一旦这种状态被破坏，无形间效率就会大打折扣。这也是为什么我总是倾向于创造大块的时间来阅读重要的东西，因为这样有利于“沉浸”进去，使得新知识可以和大脑中与其相关的各种既有的知识充分融合，关联起来，<a href="http://mindhacks.cn/2009/03/28/effective-learning-and-memorization/">后者对于深刻的记忆非常有帮助</a>。</p>
+<p>要充分利用暗时间，不仅要能够迅速进入状态，另一个很重要的习惯就是能够保持状态多久（<a href="http://www.douban.com/subject/1867455/">思维体力</a>）。《<a href="http://www.douban.com/subject/1770012/">The Psychology of Invention in the Mathematical Field</a>》上有一段关于庞加莱的思考习惯的介绍，很有代表性。庞加莱经常在去海边休假或者在路上走的时候在脑海中思索数学问题，很多时候解答就在这些时候忽然闪现。虽然我和庞加莱是没法比的，但是常常也在路上想出答案，这真是一种愉悦的体验。</p>
+<p><strong>能够迅速进入专注状态，以及能够长期保持专注状态，是高效学习的两个最重要习惯。</strong></p>
+<p>很多人都有这样的体验（包括我自己），工作了之后，要处理的事情一下多出了很多，不像在校园，环境简单，生活单纯，能够心无旁骛地做一件事情而不被打扰。工作之后的状况就是，首先需要处理的事情变多，导致时不时需要在多个任务之间切换；另一方面，即便能够把任务的优先级分配得比较合理，也难免在做一件事情的时候心中忽然想起另一件事还没做的焦虑来，因为没做完的事情会在大脑中留下一个“隐藏的进程”，时不时地发个消息提醒你一下，中断你正在做的事情。</p>
+<p>因此这里就涉及到最后一个高效的习惯：抗干扰。只有具备超强的抗干扰能力，才能有效地利用起前面提到的种种暗时间。抗干扰能力也是可以练习出来的，上本科那会经常坐车，所以我就常常拿着本大部头在车上看，坐着看或者站着看都可，事实证明在有干扰的环境中看书是非常锻炼专注能力的一个办法:D 另外，经常利用各种碎片时间阅读和思考，对迅速集中注意力和保持注意力都非常有帮助。记得很久以前TopLanguage上大伙曾经有次饶有兴趣地讨论<a href="http://groups.google.com/group/pongba/browse_thread/thread/388640d8d07f81f/">“马桶时间”的利用</a>，包括<a href="http://groups.google.com/group/pongba/msg/2ba79504a3062a10">在卫生间放个小书柜</a>。（估计很多同学心有戚戚焉吧:D）</p>
+]]></content>
+    </entry>
+    <entry>
+        <title type="html"><![CDATA[Java精选资料汇总]]></title>
+        <id>https://jingdaliu.github.io/post/java-jing-xuan-zi-liao-hui-zong</id>
+        <link href="https://jingdaliu.github.io/post/java-jing-xuan-zi-liao-hui-zong">
+        </link>
+        <updated>2018-07-01T16:01:02.000Z</updated>
+        <content type="html"><![CDATA[<p><strong>（<strong><strong>2019年4月14日更新</strong></strong>）</strong></p>
+<p>按需索取，没必要全部保存，资料会经常更新。资料顺序并非学习顺序。</p>
+<p>持续完善。</p>
+<p>因为个人网盘空间有限，很多资料直接贴官网分享的链接，内部可能存在机构的广告，请无视广告。</p>
+<p>下载之前建议先在线试看，以免下错。</p>
+<p>如果对零基础自学Java路线有疑惑的同学请参考下面的链接：</p>
+<p><a href="https://mp.weixin.qq.com/s/j3UtRsSSH2gfWbwsskle_A">https://mp.weixin.qq.com/s/j3UtRsSSH2gfWbwsskle_A</a></p>
+<p>此文章仅仅是作者按照自己的经验梳理的，希望能给学习Java迷茫的同学提供一个学习思路以及Java路线总结思路。因为每个人的情况是不一样的，有的是科班，有的是转行，有的有基础，有的零基础，所以谨慎参考。最好自己总结一份。</p>
+<p>科班的根据自己学校情况多咨询学长。</p>
+<p>01、传智播客_2015年Java基础视频-刘意-深入浅出精华版（视频跟配套资料压缩在一块）</p>
+<p>在线观看：<a href="https://www.bilibili.com/video/av33742840/">https://www.bilibili.com/video/av33742840/</a></p>
+<p>视频及资料链接：<a href="https://pan.baidu.com/s/13slfA9U23PiXca_ROPC0ww">https://pan.baidu.com/s/13slfA9U23PiXca_ROPC0ww</a> 提取码:rmkv</p>
+<p>02、传智播客_超全面的JavaWeb视频教程vedio（王泽+崔希凡）</p>
+<p>在线观看：<a href="https://www.bilibili.com/video/av37452727/">https://www.bilibili.com/video/av37452727/</a></p>
+<p>视频及资料链接: <a href="https://pan.baidu.com/s/1AEML6GRihd1_1jNWup1weg">https://pan.baidu.com/s/1AEML6GRihd1_1jNWup1weg</a> 提取码: 5ve2</p>
+<p>03、2019年尚硅谷Java基础教程</p>
+<p>在线观看：<a href="https://www.bilibili.com/video/av48370019">https://www.bilibili.com/video/av48370019</a></p>
+<p>视频及资料链接: <a href="https://pan.baidu.com/s/1NwgkY9ia4aR5izZ78TcM9w">https://pan.baidu.com/s/1NwgkY9ia4aR5izZ78TcM9w</a> 提取码: 3ffr</p>
+<p>04、尚硅谷-Java面试题第一季</p>
+<p>在线观看：<a href="https://www.bilibili.com/video/av37602130/">https://www.bilibili.com/video/av37602130/</a></p>
+<p>视频及资料链接: <a href="https://pan.baidu.com/s/1TkaN0VhqzXk9bf0pLclHbA">https://pan.baidu.com/s/1TkaN0VhqzXk9bf0pLclHbA</a> 提取码: ik7c</p>
+<p>05、尚硅谷-Java面试题第二季-2019</p>
+<p>在线观看：<a href="https://www.bilibili.com/video/av48988279/">https://www.bilibili.com/video/av48988279/</a></p>
+<p>06、黑马spring入门经典视频-王泽</p>
+<p>在线观看：<a href="https://www.bilibili.com/video/av40323796/">https://www.bilibili.com/video/av40323796/</a></p>
+<p>视频及资料链接: 链接: <a href="https://pan.baidu.com/s/1YVH2ped97OHTj3Pe7lxNMA">https://pan.baidu.com/s/1YVH2ped97OHTj3Pe7lxNMA</a> 提取码: mwir</p>
+<p>07、尚学堂Intellij IDEA软件视频教程（软件版本是2017）</p>
+<p>在线观看：<a href="https://www.bilibili.com/video/av37601375/">https://www.bilibili.com/video/av37601375/</a></p>
+<p>视频及资料链接: <a href="https://pan.baidu.com/s/1YN5crekcubpW7DAC6jnpig#list/path=%2F">https://pan.baidu.com/s/1YN5crekcubpW7DAC6jnpig#list/path=%2F</a></p>
+<p>08、黑马Intellij IDEA软件视频教程（软件版本是2017）</p>
+<p>在线观看：<a href="https://www.bilibili.com/video/av36213051/">https://www.bilibili.com/video/av36213051/</a></p>
+<p>视频及资料在群文件</p>
+<p>09、尚硅谷springboot系列教程（112集）</p>
+<p>在线观看：<a href="https://www.bilibili.com/video/av38657363/">https://www.bilibili.com/video/av38657363/</a></p>
+<p>视频及资料链接: 公众号 <a href="https://mp.weixin.qq.com/cgi-bin/settingpage?t=setting/index&amp;action=index&amp;token=1229562432&amp;lang=zh_CN">DragonWell</a> （ID：i<a href="https://mp.weixin.qq.com/cgi-bin/settingpage?t=setting/index&amp;action=index&amp;token=1229562432&amp;lang=zh_CN">DragonWell</a> ）  回复：springboot</p>
+<p>10、尚硅谷SpringCloud视频</p>
+<p>在线观看：<a href="https://www.bilibili.com/video/av49106064/">https://www.bilibili.com/video/av49106064/</a></p>
+<p>公众号 <a href="https://mp.weixin.qq.com/cgi-bin/settingpage?t=setting/index&amp;action=index&amp;token=1229562432&amp;lang=zh_CN">DragonWell</a> （ID：i<a href="https://mp.weixin.qq.com/cgi-bin/settingpage?t=setting/index&amp;action=index&amp;token=1229562432&amp;lang=zh_CN">DragonWell</a> ）  回复：尚硅谷springcloud</p>
+<p>11、尚硅谷Docker核心技术</p>
+<p>在线观看：<a href="https://www.bilibili.com/video/av49095718/">https://www.bilibili.com/video/av49095718/</a></p>
+<p>视频及资料链接: <a href="https://pan.baidu.com/s/17rJ5ME_7p804Nh-Qcc0T6A">https://pan.baidu.com/s/17rJ5ME_7p804Nh-Qcc0T6A</a>密码：5pmr</p>
+<p>12、尚硅谷Java开发利器：IntelliJ IDEA的安装、配置与使用</p>
+<p>在线观看：<a href="https://www.bilibili.com/video/av38808672/">https://www.bilibili.com/video/av38808672/</a></p>
+<p>视频及资料链接: <a href="https://pan.baidu.com/s/11biVBv9EI9yfL6Cee0r0LQ">https://pan.baidu.com/s/11biVBv9EI9yfL6Cee0r0LQ</a>   密码：n7hn</p>
+<p>13、尚硅谷Git&amp;GitHub视频</p>
+<p>在线观看：<a href="https://www.bilibili.com/video/av49085612/">https://www.bilibili.com/video/av49085612/</a></p>
+<p>视频及资料链接: <a href="https://pan.baidu.com/s/1JDQKVDtdK7_Tiw3Tejottg">https://pan.baidu.com/s/1JDQKVDtdK7_Tiw3Tejottg</a>  密码：2mvj</p>
+<p>14、尚硅谷Redis视频</p>
+<p>在线观看：</p>
+<p>视频及资料链接: <a href="http://pan.baidu.com/s/1pLKsBOJ">http://pan.baidu.com/s/1pLKsBOJ</a></p>
+<p>16、开课吧第六期全栈架构师</p>
+<p>视频及资料:公众号 <a href="https://mp.weixin.qq.com/cgi-bin/settingpage?t=setting/index&amp;action=index&amp;token=1229562432&amp;lang=zh_CN">DragonWell</a> （ID：i<a href="https://mp.weixin.qq.com/cgi-bin/settingpage?t=setting/index&amp;action=index&amp;token=1229562432&amp;lang=zh_CN">DragonWell</a> ）  回复：六期全栈</p>
+<p>17、传智Vue视频</p>
+<p>链接：<a href="https://pan.baidu.com/s/1IRLeuWgCQAS3nYZW4vOTJg">https://pan.baidu.com/s/1IRLeuWgCQAS3nYZW4vOTJg</a> 提取码：zab9(资源链接来源于网络）</p>
+<p>18、极客时间玩转spring全家桶</p>
+<p>视频及资料:公众号 <a href="https://mp.weixin.qq.com/cgi-bin/settingpage?t=setting/index&amp;action=index&amp;token=1229562432&amp;lang=zh_CN">DragonWell</a> （ID：i<a href="https://mp.weixin.qq.com/cgi-bin/settingpage?t=setting/index&amp;action=index&amp;token=1229562432&amp;lang=zh_CN">DragonWell</a> ）  回复：极客spring</p>
+<p>19、廖雪峰商业爬虫</p>
+<p>视频及资料:公众号 <a href="https://mp.weixin.qq.com/cgi-bin/settingpage?t=setting/index&amp;action=index&amp;token=1229562432&amp;lang=zh_CN">DragonWell</a> （ID：i<a href="https://mp.weixin.qq.com/cgi-bin/settingpage?t=setting/index&amp;action=index&amp;token=1229562432&amp;lang=zh_CN">DragonWell</a> ）  回复：廖雪峰商业爬虫</p>
+<p>20、黑马297期全套</p>
+<p>视频及资料:公众号 <a href="https://mp.weixin.qq.com/cgi-bin/settingpage?t=setting/index&amp;action=index&amp;token=1229562432&amp;lang=zh_CN">DragonWell</a> （ID：i<a href="https://mp.weixin.qq.com/cgi-bin/settingpage?t=setting/index&amp;action=index&amp;token=1229562432&amp;lang=zh_CN">DragonWell</a> ）  回复：黑马297</p>
+<p>21、极客时间微服务20讲</p>
+<p>视频及资料:公众号 <a href="https://mp.weixin.qq.com/cgi-bin/settingpage?t=setting/index&amp;action=index&amp;token=1229562432&amp;lang=zh_CN">DragonWell</a> （ID：i<a href="https://mp.weixin.qq.com/cgi-bin/settingpage?t=setting/index&amp;action=index&amp;token=1229562432&amp;lang=zh_CN">DragonWell</a> ）  回复：极客微服务20讲</p>
+<p>22、尚硅谷vue核心技术75讲</p>
+<p>在线：<a href="https://www.bilibili.com/video/av49099807/">https://www.bilibili.com/video/av49099807/</a></p>
+<p>视频及资料:公众号 <a href="https://mp.weixin.qq.com/cgi-bin/settingpage?t=setting/index&amp;action=index&amp;token=1229562432&amp;lang=zh_CN">DragonWell</a> （ID：i<a href="https://mp.weixin.qq.com/cgi-bin/settingpage?t=setting/index&amp;action=index&amp;token=1229562432&amp;lang=zh_CN">DragonWell</a> ）  回复：尚硅谷vue</p>
+<p>23、慕课网算法教程六套（含面试讲解）-群友提供</p>
+<p>在线：</p>
+<p>视频及资料:公众号 <a href="https://mp.weixin.qq.com/cgi-bin/settingpage?t=setting/index&amp;action=index&amp;token=1229562432&amp;lang=zh_CN">DragonWell</a> （ID：i<a href="https://mp.weixin.qq.com/cgi-bin/settingpage?t=setting/index&amp;action=index&amp;token=1229562432&amp;lang=zh_CN">DragonWell</a> ）  回复：慕课网算法</p>
+<p>24、极客时间-算法面试通关40讲</p>
+<p>在线：</p>
+<p>视频及资料:公众号 <a href="https://mp.weixin.qq.com/cgi-bin/settingpage?t=setting/index&amp;action=index&amp;token=1229562432&amp;lang=zh_CN">DragonWell</a> （ID：i<a href="https://mp.weixin.qq.com/cgi-bin/settingpage?t=setting/index&amp;action=index&amp;token=1229562432&amp;lang=zh_CN">DragonWell</a> ）  回复：极客算法面试</p>
+<p>25、Java面试核心考点解析-张雷-新浪技术专家</p>
+<p>在线：<a href="https://www.bilibili.com/video/av49170925/">https://www.bilibili.com/video/av49170925/</a></p>
+<p>26、尚硅谷mysql教程（基础篇+高级篇）---有个提取码昨天忘记加了，现在已经加上了</p>
+<p>在线：<a href="https://www.bilibili.com/video/av49181542/">https://www.bilibili.com/video/av49181542/</a></p>
+<p>视频及资料:公众号 <a href="https://mp.weixin.qq.com/cgi-bin/settingpage?t=setting/index&amp;action=index&amp;token=1229562432&amp;lang=zh_CN">DragonWell</a> （ID：i<a href="https://mp.weixin.qq.com/cgi-bin/settingpage?t=setting/index&amp;action=index&amp;token=1229562432&amp;lang=zh_CN">DragonWell</a> ）  回复：尚硅谷mysql</p>
+<p>27、尚硅谷Dubbo</p>
+<p>在线：<a href="https://www.bilibili.com/video/av49269938/">https://www.bilibili.com/video/av49269938/</a></p>
+<p>视频及资料:公众号 <a href="https://mp.weixin.qq.com/cgi-bin/settingpage?t=setting/index&amp;action=index&amp;token=1229562432&amp;lang=zh_CN">DragonWell</a> （ID：i<a href="https://mp.weixin.qq.com/cgi-bin/settingpage?t=setting/index&amp;action=index&amp;token=1229562432&amp;lang=zh_CN">DragonWell</a> ）  回复：尚硅谷Dubbo</p>
+<p>28、2018尚硅谷大数据视频_Zookeeper视频教程</p>
+<p>在线：<a href="https://www.bilibili.com/video/av49270221/">https://www.bilibili.com/video/av49270221/</a></p>
+<p>视频及资料:公众号 <a href="https://mp.weixin.qq.com/cgi-bin/settingpage?t=setting/index&amp;action=index&amp;token=1229562432&amp;lang=zh_CN">DragonWell</a> （ID：i<a href="https://mp.weixin.qq.com/cgi-bin/settingpage?t=setting/index&amp;action=index&amp;token=1229562432&amp;lang=zh_CN">DragonWell</a> ）  回复：尚硅谷zookeeper</p>
+<p>29、[<a href="USER_CANCEL">极客学院]ZooKeeper高性能分布式服务框架</a></p>
+<p>在线：</p>
+<p>视频及资料:公众号 <a href="https://mp.weixin.qq.com/cgi-bin/settingpage?t=setting/index&amp;action=index&amp;token=1229562432&amp;lang=zh_CN">DragonWell</a> （ID：i<a href="https://mp.weixin.qq.com/cgi-bin/settingpage?t=setting/index&amp;action=index&amp;token=1229562432&amp;lang=zh_CN">DragonWell</a> ）  回复：极客zookeeper</p>
+<p>30、黑马idea版本spring教程  springmvc教程  mybatis教程等</p>
+<p>在线：</p>
+<p>视频及资料:公众号 <a href="https://mp.weixin.qq.com/cgi-bin/settingpage?t=setting/index&amp;action=index&amp;token=1229562432&amp;lang=zh_CN">DragonWell</a> （ID：i<a href="https://mp.weixin.qq.com/cgi-bin/settingpage?t=setting/index&amp;action=index&amp;token=1229562432&amp;lang=zh_CN">DragonWell</a> ）  回复：黑马主流框架</p>
+<p>敏感资料还在整理中，链接容易失效</p>
+]]></content>
+    </entry>
+</feed>
