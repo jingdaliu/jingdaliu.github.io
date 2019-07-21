@@ -2,7 +2,7 @@
 <feed xmlns="http://www.w3.org/2005/Atom">
     <id>https://jingdaliu.github.io</id>
     <title>Jingda Liu&apos;s Blog</title>
-    <updated>2019-07-21T03:42:35.452Z</updated>
+    <updated>2019-07-21T03:50:48.479Z</updated>
     <generator>https://github.com/jpmonette/feed</generator>
     <link rel="alternate" href="https://jingdaliu.github.io"/>
     <link rel="self" href="https://jingdaliu.github.io/atom.xml"/>
@@ -17,9 +17,8 @@ Stay Foolish</subtitle>
         <link href="https://jingdaliu.github.io/post/2019721">
         </link>
         <updated>2019-07-21T02:52:27.000Z</updated>
-        <content type="html"><![CDATA[<p>​</p>
-<p>​		个人博客断更很久了，在一开始做这个网站的时候，也没有打算把它做成技术博客。特别喜欢大神刘未鹏写博客的习惯，思考+记录。http://mindhacks.cn/</p>
-<p>​		看了下日历，今天刚好是从武汉回家刚好过了两个月。从三月离职，离开苏州去武汉再回家，这半年过得真算得上是“颠沛流离”。若仔细思考一下这半年做了什么事情，其实脑袋还是一片空白，最担心的就是浑浑噩噩，一无所得（尤其金钱和经验都两手空的滋味真是糟心透了）。</p>
+        <content type="html"><![CDATA[<p>​		个人博客断更很久了，在一开始做这个网站的时候，也没有打算把它做成技术博客。特别喜欢大神刘未鹏写博客的习惯，思考+记录。http://mindhacks.cn/</p>
+<p>​		看了下日历，今天刚好是从武汉回家两个月。从三月离职，离开苏州去武汉，再回家，这半年过得真算得上是“颠沛流离”。若仔细思考一下这半年做了什么事情，其实脑袋还是一片空白，最担心的就是浑浑噩噩，一无所得（尤其金钱和经验都两手空的滋味真是糟心透了）。</p>
 <p>​		工作的时候，老板会要求写日报、周报和年终总结，工作的时候觉得这是一件恶俗且浪费时间的事情，当离职的时候才发现，周报很好的帮我总结了我工作到底做了什么事情。</p>
 <p>​		所以，当了几个月的无业游民，决定以月报的形式总结下这几个月所做的事情和思考。</p>
 <h1 id="20193">2019.3</h1>
