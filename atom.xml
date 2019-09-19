@@ -2,7 +2,7 @@
 <feed xmlns="http://www.w3.org/2005/Atom">
     <id>https://jingdaliu.github.io</id>
     <title>Jingda Liu&apos;s Blog</title>
-    <updated>2019-07-21T03:50:48.479Z</updated>
+    <updated>2019-09-19T15:46:16.842Z</updated>
     <generator>https://github.com/jpmonette/feed</generator>
     <link rel="alternate" href="https://jingdaliu.github.io"/>
     <link rel="self" href="https://jingdaliu.github.io/atom.xml"/>
@@ -69,6 +69,94 @@ Stay Foolish</subtitle>
 <p>就可以启动我们自己的Tomcat了<br>
 http://localhost:8080</p>
 <p><img src="https://jingdaliu.github.io/post-images/1557286033227.png" alt=""></p>
+]]></content>
+    </entry>
+    <entry>
+        <title type="html"><![CDATA[刘竞达项目总结@ZJU KSII AILAB]]></title>
+        <id>https://jingdaliu.github.io/post/liu-jing-da-xiang-mu-zong-jie-zju-ksii-ailab</id>
+        <link href="https://jingdaliu.github.io/post/liu-jing-da-xiang-mu-zong-jie-zju-ksii-ailab">
+        </link>
+        <updated>2019-04-30T12:13:46.000Z</updated>
+        <content type="html"><![CDATA[<p><img src="https://jingdaliu.github.io/post-images/1556456204124.jpeg" alt=""></p>
+<p>后续会把源码放到GitHub上面。</p>
+<p>人脸识别项目（年龄检测）</p>
+<p>**一、**YOLO年龄检测项目汇报</p>
+<p>\1. 使用检测方法进行训练</p>
+<p>打标签</p>
+<p>配置darknet</p>
+<p>上传数据集、更改网络模型</p>
+<p>对数据进行迭代计算</p>
+<p>对产生模型进行测试</p>
+<p>存在问题：检测正确率低</p>
+<p>解决方法：使用分类的方法进行训练</p>
+<p>\2. 使用分类方法进行训练</p>
+<p>更改数据集格式并进行上传</p>
+<p>重写网络模型</p>
+<p>对数据进行迭代计算</p>
+<p>对产生模型进行测试</p>
+<p>使用不同来源图片进行测试</p>
+<p>存在问题：分类准确率一般、训练时对数据集要求较高</p>
+<p>解决方法：增加数据集的来源，尽可能包含多种特征，</p>
+<h3 id="二-opencv_cascadetrain训练总结">二、opencv_cascadetrain训练总结</h3>
+<h4 id="opencv支持三种特征提取训练检测">OpenCV支持三种特征提取训练检测：</h4>
+<p>\1. Haar：的优势在于能更好的描述明暗变化，因此用于检测正面的人脸。</p>
+<p>\2. LBP：比haar快很多倍，但是提取的准确率会低（10-20% 取决于训练对象）如果是嵌入式或者移动端的开发，推荐使用LBP。</p>
+<p>\3. Hog：与其他的特征描述方法相比，HOG有很多优点。首先，由于HOG是在图像的局部方格单元上操作，所以它对图像几何的和光学的形变都能保持很好的不变性，这两种形变只会出现在更大的空间领域上。其次，在粗的空域抽样、精细的方向抽样以及较强的局部光学归一化等条件下，只要行人大体上能够保持直立的姿势，可以容许行人有一些细微的肢体动作，这些细微的动作可以被忽略而不影响检测效果。因此HOG特征是特别适合于做图像中的人体检测的。</p>
+<h4 id="训练步骤">训练步骤</h4>
+<p><strong>1、搜集正样本、负样本</strong></p>
+<p>· 正样本：只含有目标的局部图（若是全图，则需要把目标截取出来，比如训练人脸，则把人脸从含有人脸的图片中截取出来，尺寸要一致），且背景不要太过复杂，灰度图</p>
+<p>· 正样本大小：20<em>20(一般用于Haar特征)，24</em>24（LBP特征）</p>
+<p>· 正样本数量：一般大于等于2000</p>
+<p>· 负样本：不含目标的任何图片，灰度图</p>
+<p>· 负样本大小：60*60</p>
+<p>· 负样本数量：一般大于等于5000</p>
+<p>· 注：正样本尺寸越小，训练的时间越短，但正样本的尺寸要保证小于负样本的尺寸</p>
+<p>**2、**<strong>新建文件夹</strong></p>
+<p><img src="https://ws2.sinaimg.cn/large/006tNc79gy1g27oji7uk2j30bk031gm1.jpg" alt="img"></p>
+<p>**3、**<strong>制作.bat文件和路径文件</strong></p>
+<p>· Pos.bat</p>
+<p>dir /b &gt; pos.txt</p>
+<p>做出如下更改</p>
+<p><img src="https://ws4.sinaimg.cn/large/006tNc79gy1g27ojhruj2j305c039wev.jpg" alt="img"></p>
+<p>· neg文件夹：存放负样本</p>
+<p>· neg.txt</p>
+<p>dir /b /s &gt; neg.txt</p>
+<p><img src="https://ws2.sinaimg.cn/large/006tNc79gy1g27ojk3rd2j305j03kq3k.jpg" alt="img"></p>
+<p>· data文件夹：存放训练的xml格式文件</p>
+<p>**4、**<strong>生成pos.vec文件</strong></p>
+<p>· 使用opencv_createsamples.exe程序</p>
+<p>· createsamples.bat：</p>
+<p>opencv_createsamples.exe -info pos/pos.txt -vec pos.vec -num 344 -w 32 -h 32</p>
+<p>pause</p>
+<p>**6、**<strong>进行训练</strong></p>
+<p>opencv_traincascade.exe -data data -vec pos.vec -bg neg.txt -numPos 200 -numNeg 200 -numStages 100 -w 32 -h 32 -minHitRate 0.999 maxFalseAlarmRate 0.5 -precalcValBufSize 256 -precalcIdxBufSize 256 -mode ALL</p>
+<p>pause</p>
+<p>numStages的参数一般默认为20，最好大于等于20，级数太小的话，训练的效果较差</p>
+<p>**7、**<strong>训练结果</strong></p>
+<p><img src="https://ws2.sinaimg.cn/large/006tNc79gy1g27ojfsmewj3076076dgv.jpg" alt="img"></p>
+<p><strong>8、进行测试</strong></p>
+<p><img src="https://ws1.sinaimg.cn/large/006tNc79gy1g27ojikyl3j303k034abc.jpg" alt="img"></p>
+<p>**9、**<strong>出现问题</strong></p>
+<p>· 精确度过低</p>
+<p>· 可以调用opencv模型识别人脸</p>
+<p>· 训练时间过慢</p>
+<p>10、解决方案</p>
+<p>· 	增加训练层数</p>
+<p>· 调试成熟模型</p>
+<p>· 使用dilb+HOG进行训练</p>
+<h2 id="车道线检测"><strong>车道线检测</strong></h2>
+<p>车道检测是辅助驾驶和自动驾驶的重要研究内容.针对现有车道检测算法的鲁棒性和复杂度较难均衡等问题,提出一种基于多帧叠加和窗口搜索的快速车道检测算法. 首先,通过逆透视变换(IPM)把指定的感兴趣区域(ROI)转换成鸟瞰图,结合多帧叠加的方法把 RGB 图像转化成二值图.其次,根据近视场中的像素密度分布,计算当前帧的车道线起始点,并采用滑动窗口搜索的方法提取整个车道线.最后,根据车道线的特征,选择不同的车道模型,使用最小二乘法(LSE)拟合得到模型参数.大量的实际道路行驶测试结果表明,该算法能快速地检测车道线,并具有一定的鲁棒性和准确性。</p>
+<p>车道线检测流程图</p>
+<p><img src="https://ws3.sinaimg.cn/large/006tNc79gy1g27ojfc9s9j309s0aet9e.jpg" alt="img"></p>
+<p>一、视频拆分成帧并保存为png</p>
+<p><img src="https://ws1.sinaimg.cn/large/006tNc79gy1g27ojgq3z4j305s06rt96.jpg" alt="img"><img src="https://ws2.sinaimg.cn/large/006tNc79gy1g27ojg879kj305a06ymxk.jpg" alt="img"></p>
+<p>效果</p>
+<p><img src="https://ws3.sinaimg.cn/large/006tNc79gy1g27ojem9fpj30bb03t0tn.jpg" alt="img"></p>
+<p>二、将每一帧进行灰度化</p>
+<p><img src="https://ws1.sinaimg.cn/large/006tNc79gy1g27ojh6ummj30a20aa75h.jpg" alt="img"></p>
+<p><img src="https://ws4.sinaimg.cn/large/006tNc79gy1g27ojjhvdzj30cf05hjsb.jpg" alt="img"></p>
+<p>三、车道线检测</p>
+<p><img src="https://ws2.sinaimg.cn/large/006tNc79gy1g27ojj23kxj30bq0560te.jpg" alt="img"></p>
 ]]></content>
     </entry>
     <entry>
@@ -528,94 +616,6 @@ $H_{2SO_4}$
 ±</p>
 </li>
 </ul>
-]]></content>
-    </entry>
-    <entry>
-        <title type="html"><![CDATA[刘竞达项目总结@ZJU KSII AILAB]]></title>
-        <id>https://jingdaliu.github.io/post/liu-jing-da-xiang-mu-zong-jie-zju-ksii-ailab</id>
-        <link href="https://jingdaliu.github.io/post/liu-jing-da-xiang-mu-zong-jie-zju-ksii-ailab">
-        </link>
-        <updated>2019-04-28T12:13:46.000Z</updated>
-        <content type="html"><![CDATA[<p><img src="https://jingdaliu.github.io/post-images/1556456204124.jpeg" alt=""></p>
-<p>后续会把源码放到GitHub上面。</p>
-<p>人脸识别项目（年龄检测）</p>
-<p>**一、**YOLO年龄检测项目汇报</p>
-<p>\1. 使用检测方法进行训练</p>
-<p>打标签</p>
-<p>配置darknet</p>
-<p>上传数据集、更改网络模型</p>
-<p>对数据进行迭代计算</p>
-<p>对产生模型进行测试</p>
-<p>存在问题：检测正确率低</p>
-<p>解决方法：使用分类的方法进行训练</p>
-<p>\2. 使用分类方法进行训练</p>
-<p>更改数据集格式并进行上传</p>
-<p>重写网络模型</p>
-<p>对数据进行迭代计算</p>
-<p>对产生模型进行测试</p>
-<p>使用不同来源图片进行测试</p>
-<p>存在问题：分类准确率一般、训练时对数据集要求较高</p>
-<p>解决方法：增加数据集的来源，尽可能包含多种特征，</p>
-<h3 id="二-opencv_cascadetrain训练总结">二、opencv_cascadetrain训练总结</h3>
-<h4 id="opencv支持三种特征提取训练检测">OpenCV支持三种特征提取训练检测：</h4>
-<p>\1. Haar：的优势在于能更好的描述明暗变化，因此用于检测正面的人脸。</p>
-<p>\2. LBP：比haar快很多倍，但是提取的准确率会低（10-20% 取决于训练对象）如果是嵌入式或者移动端的开发，推荐使用LBP。</p>
-<p>\3. Hog：与其他的特征描述方法相比，HOG有很多优点。首先，由于HOG是在图像的局部方格单元上操作，所以它对图像几何的和光学的形变都能保持很好的不变性，这两种形变只会出现在更大的空间领域上。其次，在粗的空域抽样、精细的方向抽样以及较强的局部光学归一化等条件下，只要行人大体上能够保持直立的姿势，可以容许行人有一些细微的肢体动作，这些细微的动作可以被忽略而不影响检测效果。因此HOG特征是特别适合于做图像中的人体检测的。</p>
-<h4 id="训练步骤">训练步骤</h4>
-<p><strong>1、搜集正样本、负样本</strong></p>
-<p>· 正样本：只含有目标的局部图（若是全图，则需要把目标截取出来，比如训练人脸，则把人脸从含有人脸的图片中截取出来，尺寸要一致），且背景不要太过复杂，灰度图</p>
-<p>· 正样本大小：20<em>20(一般用于Haar特征)，24</em>24（LBP特征）</p>
-<p>· 正样本数量：一般大于等于2000</p>
-<p>· 负样本：不含目标的任何图片，灰度图</p>
-<p>· 负样本大小：60*60</p>
-<p>· 负样本数量：一般大于等于5000</p>
-<p>· 注：正样本尺寸越小，训练的时间越短，但正样本的尺寸要保证小于负样本的尺寸</p>
-<p>**2、**<strong>新建文件夹</strong></p>
-<p><img src="https://ws2.sinaimg.cn/large/006tNc79gy1g27oji7uk2j30bk031gm1.jpg" alt="img"></p>
-<p>**3、**<strong>制作.bat文件和路径文件</strong></p>
-<p>· Pos.bat</p>
-<p>dir /b &gt; pos.txt</p>
-<p>做出如下更改</p>
-<p><img src="https://ws4.sinaimg.cn/large/006tNc79gy1g27ojhruj2j305c039wev.jpg" alt="img"></p>
-<p>· neg文件夹：存放负样本</p>
-<p>· neg.txt</p>
-<p>dir /b /s &gt; neg.txt</p>
-<p><img src="https://ws2.sinaimg.cn/large/006tNc79gy1g27ojk3rd2j305j03kq3k.jpg" alt="img"></p>
-<p>· data文件夹：存放训练的xml格式文件</p>
-<p>**4、**<strong>生成pos.vec文件</strong></p>
-<p>· 使用opencv_createsamples.exe程序</p>
-<p>· createsamples.bat：</p>
-<p>opencv_createsamples.exe -info pos/pos.txt -vec pos.vec -num 344 -w 32 -h 32</p>
-<p>pause</p>
-<p>**6、**<strong>进行训练</strong></p>
-<p>opencv_traincascade.exe -data data -vec pos.vec -bg neg.txt -numPos 200 -numNeg 200 -numStages 100 -w 32 -h 32 -minHitRate 0.999 maxFalseAlarmRate 0.5 -precalcValBufSize 256 -precalcIdxBufSize 256 -mode ALL</p>
-<p>pause</p>
-<p>numStages的参数一般默认为20，最好大于等于20，级数太小的话，训练的效果较差</p>
-<p>**7、**<strong>训练结果</strong></p>
-<p><img src="https://ws2.sinaimg.cn/large/006tNc79gy1g27ojfsmewj3076076dgv.jpg" alt="img"></p>
-<p><strong>8、进行测试</strong></p>
-<p><img src="https://ws1.sinaimg.cn/large/006tNc79gy1g27ojikyl3j303k034abc.jpg" alt="img"></p>
-<p>**9、**<strong>出现问题</strong></p>
-<p>· 精确度过低</p>
-<p>· 可以调用opencv模型识别人脸</p>
-<p>· 训练时间过慢</p>
-<p>10、解决方案</p>
-<p>· 	增加训练层数</p>
-<p>· 调试成熟模型</p>
-<p>· 使用dilb+HOG进行训练</p>
-<h2 id="车道线检测"><strong>车道线检测</strong></h2>
-<p>车道检测是辅助驾驶和自动驾驶的重要研究内容.针对现有车道检测算法的鲁棒性和复杂度较难均衡等问题,提出一种基于多帧叠加和窗口搜索的快速车道检测算法. 首先,通过逆透视变换(IPM)把指定的感兴趣区域(ROI)转换成鸟瞰图,结合多帧叠加的方法把 RGB 图像转化成二值图.其次,根据近视场中的像素密度分布,计算当前帧的车道线起始点,并采用滑动窗口搜索的方法提取整个车道线.最后,根据车道线的特征,选择不同的车道模型,使用最小二乘法(LSE)拟合得到模型参数.大量的实际道路行驶测试结果表明,该算法能快速地检测车道线,并具有一定的鲁棒性和准确性。</p>
-<p>车道线检测流程图</p>
-<p><img src="https://ws3.sinaimg.cn/large/006tNc79gy1g27ojfc9s9j309s0aet9e.jpg" alt="img"></p>
-<p>一、视频拆分成帧并保存为png</p>
-<p><img src="https://ws1.sinaimg.cn/large/006tNc79gy1g27ojgq3z4j305s06rt96.jpg" alt="img"><img src="https://ws2.sinaimg.cn/large/006tNc79gy1g27ojg879kj305a06ymxk.jpg" alt="img"></p>
-<p>效果</p>
-<p><img src="https://ws3.sinaimg.cn/large/006tNc79gy1g27ojem9fpj30bb03t0tn.jpg" alt="img"></p>
-<p>二、将每一帧进行灰度化</p>
-<p><img src="https://ws1.sinaimg.cn/large/006tNc79gy1g27ojh6ummj30a20aa75h.jpg" alt="img"></p>
-<p><img src="https://ws4.sinaimg.cn/large/006tNc79gy1g27ojjhvdzj30cf05hjsb.jpg" alt="img"></p>
-<p>三、车道线检测</p>
-<p><img src="https://ws2.sinaimg.cn/large/006tNc79gy1g27ojj23kxj30bq0560te.jpg" alt="img"></p>
 ]]></content>
     </entry>
     <entry>
